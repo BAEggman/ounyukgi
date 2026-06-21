@@ -1,1 +1,1369 @@
-placeholder
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="오운육기 허브">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f1014">
+<title>五運六氣 학습 허브 — 천간지지·오운·육기·운기상합·삼음삼양</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;--su:#5f86b8;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);min-height:100vh}
+  header.top{padding:30px 16px 14px;border-bottom:1px solid var(--line2)}
+  .top-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .ttl{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(30px,7vw,50px);line-height:1;text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .ttl .a{color:var(--su)}.ttl .b{color:var(--gold)}
+  .ttl-meta{display:flex;flex-direction:column;gap:3px}
+  .ttl-ko{font-size:17px;color:var(--text);font-weight:600}
+  .ttl-sub{font-size:12.5px;color:var(--muted)}
+  .badge{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  nav.sec{position:sticky;top:0;z-index:30;background:rgba(15,16,20,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2)}
+  .sec-inner{max-width:1000px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 12px}
+  .sec-tab{flex:0 0 auto;border:1px solid var(--line2);background:var(--ink2);color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:10px;padding:9px 15px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:104px;transition:.15s}
+  .sec-tab .s-han{font-family:var(--serif);font-size:16px;letter-spacing:.04em}
+  .sec-tab .s-ko{font-size:10.5px;opacity:.85}
+  .sec-tab:hover{color:var(--text);border-color:var(--paper)}
+  .sec-tab.active{color:var(--paper);background:var(--ink3);border-color:var(--gold)}
+  .sec-tab.active .s-han{color:var(--gold)}
+  .sec-tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .frame-wrap{max-width:1000px;margin:0 auto;padding:0}
+  iframe#frame{width:100%;border:none;background:transparent;display:block;min-height:780px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="ttl"><span class="a">五運</span><span class="b">六氣</span></div>
+    <div class="ttl-meta">
+      <div class="ttl-ko">오운육기 통합 학습 허브 · 3장 전체</div>
+      <div class="ttl-sub">天干地支 · 五運 · 六氣 · 運氣相合 · 三陰三陽 — 25 게임</div>
+    </div>
+    <div class="badge">運氣</div>
+  </div>
+</header>
+<nav class="sec" aria-label="절 선택">
+  <div class="sec-inner">
+      <button class="sec-tab active" data-sec="oun1"><span class="s-han">1절 天干地支</span><span class="s-ko">천간지지·운기기본</span></button>
+      <button class="sec-tab" data-sec="oun2"><span class="s-han">2절 五運</span><span class="s-ko">오운</span></button>
+      <button class="sec-tab" data-sec="oun3"><span class="s-han">3절 六氣</span><span class="s-ko">육기</span></button>
+      <button class="sec-tab" data-sec="oun4"><span class="s-han">4절 運化</span><span class="s-ko">운기상합·동화·평기</span></button>
+      <button class="sec-tab" data-sec="oun5"><span class="s-han">5절 標本</span><span class="s-ko">삼음삼양·표본중기</span></button>
+  </div>
+</nav>
+<div class="frame-wrap">
+  <iframe id="frame" title="학습 허브"></iframe>
+</div>
+<script>
+  var HUBS = {
+    oun1: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五運六氣 · 천간지지 허브</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line:#33384280;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;
+    --mok:#6fae6a;--hwa:#d05a44;--to:#d8a64a;--geum:#c9cdcb;--su:#5f86b8;
+    --ok:#7bbf73;--no:#d8635a;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header.hero{position:relative;padding:34px 16px 16px;border-bottom:1px solid var(--line2);overflow:hidden}
+  .hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hanzi-title{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(34px,7.5vw,56px);line-height:1;color:var(--paper);text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .hanzi-title .a{color:var(--su)}.hanzi-title .b{color:var(--gold)}
+  .title-meta{display:flex;flex-direction:column;gap:4px}
+  .title-ko{font-size:18px;color:var(--text);font-weight:600}
+  .title-sub{font-size:13px;color:var(--muted)}
+  .seal{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;line-height:1.05;text-align:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  .gz-strip{max-width:960px;margin:14px auto 0;display:flex;flex-direction:column;gap:4px}
+  .gz-row{display:flex;gap:5px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--serif);font-size:15px}
+  .gz-lab{font-family:var(--sans);font-size:11px;color:var(--muted);min-width:30px}
+  .gz-row .c{color:var(--su)} .gz-row .c2{color:var(--gold)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(15,16,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2);margin-bottom:22px}
+  .tabs-inner{max-width:960px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:8px 10px}
+  .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:9px;padding:8px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:96px;transition:.15s}
+  .tab .t-han{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:inherit}
+  .tab .t-ko{font-size:11px;opacity:.85}
+  .tab:hover{color:var(--text);background:var(--ink2)}
+  .tab.active{color:var(--paper);background:var(--ink3);border-color:var(--line2)}
+  .tab.active .t-han{color:var(--gold)}
+  .tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .panel{display:none;animation:fade .25s ease}.panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .game-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .game-head h2{font-family:var(--serif);font-size:23px;margin:0;color:var(--paper);letter-spacing:.04em}
+  .game-head p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:620px}
+  .scorebox{margin-left:auto;font-size:13px;color:var(--muted);background:var(--ink2);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;white-space:nowrap}
+  .scorebox b{color:var(--paper);font-size:15px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:20px;margin-bottom:16px}
+  .prompt-han{font-family:var(--serif);font-size:clamp(28px,7vw,44px);color:var(--text);letter-spacing:.05em;text-align:center;margin:8px 0 4px;line-height:1.3}
+  .prompt-label{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .ask{text-align:center;font-size:14px;color:var(--paper);margin:16px 0 12px;font-weight:600}
+  .choices{display:grid;gap:9px}
+  .choices.c2{grid-template-columns:repeat(2,1fr)}
+  .choices.c3{grid-template-columns:repeat(3,1fr)}
+  .choices.c5{grid-template-columns:repeat(5,1fr)}
+  .choices.c6{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:560px){.choices.c6{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.choices.c5{grid-template-columns:repeat(5,1fr)}}
+  .choice{background:var(--ink3);border:1px solid var(--line2);color:var(--text);font-family:var(--serif);font-size:16px;padding:13px 8px;border-radius:10px;cursor:pointer;transition:.13s;text-align:center;line-height:1.3}
+  .choice .sub{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px}
+  .choice:hover:not(:disabled){border-color:var(--paper);background:#272b34;transform:translateY(-1px)}
+  .choice:disabled{cursor:default;opacity:.92}
+  .choice.correct{border-color:var(--ok);background:rgba(123,191,115,.16);color:#cfe9c9}
+  .choice.wrong{border-color:var(--no);background:rgba(216,99,90,.16);color:#f0c4c0}
+  .choice:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .reveal{margin-top:16px;border-top:1px dashed var(--line2);padding-top:14px;display:none}
+  .reveal.show{display:block;animation:fade .2s}
+  .reveal .verdict{font-weight:700;font-size:15px;margin-bottom:8px}
+  .reveal .verdict.ok{color:var(--ok)}.reveal .verdict.no{color:var(--no)}
+  .src{font-family:var(--serif);color:var(--paper);font-size:16px;letter-spacing:.02em;line-height:1.7}
+  .gloss{font-size:13px;color:var(--muted);margin-top:6px}
+  .trap{font-size:12.5px;color:#e7b9a0;background:rgba(200,69,58,.10);border-left:3px solid var(--seal);padding:7px 11px;border-radius:0 7px 7px 0;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--seal);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:9px;cursor:pointer;margin-top:14px}
+  .btn:hover{background:#d8554a}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .wuxing-pill{display:inline-block;font-family:var(--serif);font-weight:700;padding:1px 9px;border-radius:16px;color:#0f1014;font-size:15px}
+  .p-mok{background:var(--mok)}.p-hwa{background:var(--hwa)}.p-to{background:var(--to)}.p-geum{background:var(--geum)}.p-su{background:var(--su)}
+  footer{max-width:960px;margin:34px auto 0;padding:0 16px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer .han{font-family:var(--serif);color:var(--paper)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hanzi-title"><span class="a">五運</span><span class="b">六氣</span></div>
+    <div class="title-meta">
+      <div class="title-ko">오운육기 · 천간지지·운기 기본</div>
+      <div class="title-sub">3장 1절 · 二十四節氣 / 天干二重 / 化五運 / 地支三陰三陽 / 太過不及</div>
+    </div>
+    <div class="seal">運氣</div>
+  </div>
+  <div class="gz-strip">
+    <div class="gz-row"><span class="gz-lab">天干</span><span class="c">甲 乙 丙 丁 戊 己 庚 辛 壬 癸</span></div>
+    <div class="gz-row"><span class="gz-lab">地支</span><span class="c2">子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥</span></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="게임 선택">
+  <div class="tabs-inner">
+    <button class="tab active" data-tab="g1"><span class="t-han">節氣六步</span><span class="t-ko">24절기 6기</span></button>
+    <button class="tab" data-tab="g2"><span class="t-han">天干二重</span><span class="t-ko">형제·화오운</span></button>
+    <button class="tab" data-tab="g3"><span class="t-han">化五運</span><span class="t-ko">천간합</span></button>
+    <button class="tab" data-tab="g4"><span class="t-han">三陰三陽</span><span class="t-ko">지지 화오행</span></button>
+    <button class="tab" data-tab="g5"><span class="t-han">太過不及</span><span class="t-ko">양간·음간</span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="panel active" id="g1">
+    <div class="game-head"><div><h2>二十四節氣 — 六步 배속</h2>
+      <p>절기가 主氣 6기(初~終) 중 어디인지 고르세요. 인묘부터 初之氣, 각 기 = 4절기. ※ 三之氣는 小暑·大暑까지(大暑↔小暑 기출 함정).</p></div>
+      <div class="scorebox">정답 <b id="s1">0</b> / <span id="t1">0</span></div></div>
+    <div class="card"><div class="prompt-han" id="g1-item"></div><div class="prompt-label">↕ 이 절기는 몇 번째 氣?</div>
+      <div class="choices c6" id="g1-choices"></div><div class="reveal" id="g1-reveal"></div></div>
+  </section>
+
+  <section class="panel" id="g2">
+    <div class="game-head"><div><h2>天干 二重배속 — 형제 vs 화오운</h2>
+      <p>천간의 <b>형제배속</b>(고정·主運용)과 <b>화오운</b>(천간합·大運/客運용)은 다릅니다. 甲은 형제=木이지만 大運은 土(甲己合)! 핵심 혼동.</p></div>
+      <div class="scorebox">정답 <b id="s2">0</b> / <span id="t2">0</span></div></div>
+    <div class="card"><div class="prompt-han" id="g2-item"></div><div class="ask" id="g2-ask"></div>
+      <div class="choices c5" id="g2-choices"></div><div class="reveal" id="g2-reveal"></div></div>
+  </section>
+
+  <section class="panel" id="g3">
+    <div class="game-head"><div><h2>化五運 — 천간합</h2>
+      <p>천간합 두 글자가 만드는 化五行을 고르세요. 甲己合土·乙庚合金·丙辛合水·丁壬合木·戊癸合火.</p></div>
+      <div class="scorebox">정답 <b id="s3">0</b> / <span id="t3">0</span></div></div>
+    <div class="card"><div class="prompt-han" id="g3-item"></div><div class="prompt-label">↕ 이 천간합의 化五行은?</div>
+      <div class="choices c5" id="g3-choices"></div><div class="reveal" id="g3-reveal"></div></div>
+  </section>
+
+  <section class="panel" id="g4">
+    <div class="game-head"><div><h2>地支 → 三陰三陽 六氣</h2>
+      <p>대대(對待)하는 지지 두 글자가 어느 삼음삼양 육기인지 고르세요. 子午少陰君火·丑未太陰濕土·寅申少陽相火·卯酉陽明燥金·辰戌太陽寒水·巳亥厥陰風木.</p></div>
+      <div class="scorebox">정답 <b id="s4">0</b> / <span id="t4">0</span></div></div>
+    <div class="card"><div class="prompt-han" id="g4-item"></div><div class="prompt-label">↕ 이 지지쌍의 육기는?</div>
+      <div class="choices c6" id="g4-choices"></div><div class="reveal" id="g4-reveal"></div></div>
+  </section>
+
+  <section class="panel" id="g5">
+    <div class="game-head"><div><h2>太過 · 不及 — 양간·음간</h2>
+      <p>천간이 太過年(양간)인지 不及年(음간)인지 판정하세요. 양간 甲丙戊庚壬=太過(自氣 유행), 음간 乙丁己辛癸=不及(克氣 유행·복기).</p></div>
+      <div class="scorebox">정답 <b id="s5">0</b> / <span id="t5">0</span></div></div>
+    <div class="card"><div class="prompt-han" id="g5-item"></div><div class="prompt-label">↕ 이 해는?</div>
+      <div class="choices c2" id="g5-choices"></div><div class="reveal" id="g5-reveal"></div></div>
+  </section>
+</main>
+
+<footer>
+  <span class="han">甲己合土 乙庚合金 丙辛合水 丁壬合木 戊癸合火 ┃ 子午少陰 丑未太陰 寅申少陽 卯酉陽明 辰戌太陽 巳亥厥陰</span><br>
+  오운육기 · 3장 1절 학습 허브 · 단일 HTML, 외부 의존성 없음
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  function $(s,r){return (r||document).querySelector(s);}
+  function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function pick(a){return a[Math.floor(Math.random()*a.length)];}
+  var ELC={"木":"p-mok","火":"p-hwa","土":"p-to","金":"p-geum","水":"p-su"};
+  function pill(e){return '<span class="wuxing-pill '+ELC[e]+'">'+e+'</span>';}
+
+  (function(){var tabs=document.querySelectorAll(".tab");if(!tabs.length)return;
+    Array.prototype.forEach.call(tabs,function(tab){tab.addEventListener("click",function(){
+      var id=tab.getAttribute("data-tab");
+      Array.prototype.forEach.call(tabs,function(t){t.classList.toggle("active",t===tab);});
+      document.querySelectorAll(".panel").forEach(function(p){p.classList.toggle("active",p.id===id);});
+    });});})();
+
+  /* ===== G1 24절기 6기 ===== */
+  (function(){
+    var SEA=[
+      {s:"立春",gi:"初之氣"},{s:"雨水",gi:"初之氣"},{s:"驚蟄",gi:"初之氣"},{s:"春分",gi:"初之氣"},
+      {s:"淸明",gi:"二之氣"},{s:"穀雨",gi:"二之氣"},{s:"立夏",gi:"二之氣"},{s:"小滿",gi:"二之氣"},
+      {s:"芒種",gi:"三之氣"},{s:"夏至",gi:"三之氣"},{s:"小暑",gi:"三之氣"},{s:"大暑",gi:"三之氣"},
+      {s:"立秋",gi:"四之氣"},{s:"處暑",gi:"四之氣"},{s:"白露",gi:"四之氣"},{s:"秋分",gi:"四之氣"},
+      {s:"寒露",gi:"五之氣"},{s:"霜降",gi:"五之氣"},{s:"立冬",gi:"五之氣"},{s:"小雪",gi:"五之氣"},
+      {s:"大雪",gi:"終之氣"},{s:"冬至",gi:"終之氣"},{s:"小寒",gi:"終之氣"},{s:"大寒",gi:"終之氣"}
+    ];
+    var GI=[["初之氣","궐음풍목·寅卯"],["二之氣","소음군화·辰巳"],["三之氣","소양상화·午未"],["四之氣","태음습토·申酉"],["五之氣","양명조금·戌亥"],["終之氣","태양한수·子丑"]];
+    var GIMAP={};GI.forEach(function(g){GIMAP[g[0]]=g[1];});
+    var item=$("#g1-item"),ch=$("#g1-choices"),rev=$("#g1-reveal"),sEl=$("#s1"),tEl=$("#t1");
+    if(!item||!ch)return;var score=0,total=0,cur=null;
+    function round(){cur=pick(SEA);rev.className="reveal";rev.innerHTML="";
+      item.textContent=cur.s;
+      ch.className="choices c6";ch.innerHTML="";
+      GI.forEach(function(g){var b=el("button","choice",g[0]+'<span class="sub">'+g[1].split("·")[0]+'</span>');b.addEventListener("click",function(){ans(g[0],b);});ch.appendChild(b);});}
+    function ans(g,btn){var ok=(g===cur.gi);total++;if(ok)score++;
+      Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+      if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent.indexOf(cur.gi)===0)x.classList.add("correct");});
+      sEl.textContent=score;tEl.textContent=total;rev.className="reveal show";
+      rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 ✓":"誤 ✕")+'</div>'+
+        '<div class="src">'+cur.s+' → <b style="color:var(--gold)">'+cur.gi+'</b> ('+GIMAP[cur.gi]+')</div>'+
+        '<div class="trap">主氣 순서(상생): 厥陰→少陰→少陽→太陰→陽明→太陽. 三之氣(소양상화)는 芒種·夏至·小暑·大暑까지 — 大暑↔小暑 함정!</div>';
+      var b=el("button","btn","다음 →");b.addEventListener("click",round);rev.appendChild(b);}
+    round();
+  })();
+
+  /* ===== G2 천간 이중배속 ===== */
+  (function(){
+    var GAN=[
+      {g:"甲",hyung:"木",hwa:"土",hap:"甲己合土"},{g:"乙",hyung:"木",hwa:"金",hap:"乙庚合金"},
+      {g:"丙",hyung:"火",hwa:"水",hap:"丙辛合水"},{g:"丁",hyung:"火",hwa:"木",hap:"丁壬合木"},
+      {g:"戊",hyung:"土",hwa:"火",hap:"戊癸合火"},{g:"己",hyung:"土",hwa:"土",hap:"甲己合土"},
+      {g:"庚",hyung:"金",hwa:"金",hap:"乙庚合金"},{g:"辛",hyung:"金",hwa:"水",hap:"丙辛合水"},
+      {g:"壬",hyung:"水",hwa:"木",hap:"丁壬合木"},{g:"癸",hyung:"水",hwa:"火",hap:"戊癸合火"}
+    ];
+    var EL=["木","火","土","金","水"];
+    var item=$("#g2-item"),ask=$("#g2-ask"),ch=$("#g2-choices"),rev=$("#g2-reveal"),sEl=$("#s2"),tEl=$("#t2");
+    if(!item||!ch)return;var score=0,total=0,cur=null,mode=null;
+    function round(){cur=pick(GAN);mode=pick(["hyung","hwa"]);rev.className="reveal";rev.innerHTML="";
+      item.innerHTML='天干 <b style="color:var(--gold);font-size:1.3em">'+cur.g+'</b>';
+      ask.textContent=(mode==="hyung"?"① 兄弟배속(主運용) 오행은?":"① 化五運(大運·客運용) 오행은?");
+      ch.className="choices c5";ch.innerHTML="";
+      shuffle(EL).forEach(function(e){var b=el("button","choice",pill(e));b.addEventListener("click",function(){ans(e,b);});ch.appendChild(b);});}
+    function ans(e,btn){var correct=cur[mode];var ok=(e===correct);total++;if(ok)score++;
+      Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+      if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===correct)x.classList.add("correct");});
+      sEl.textContent=score;tEl.textContent=total;rev.className="reveal show";
+      rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 ✓":"誤 ✕")+'</div>'+
+        '<div class="src">'+cur.g+' — 兄弟배속 '+pill(cur.hyung)+'(主運) / 化五運 '+pill(cur.hwa)+'(大運, '+cur.hap+')</div>'+
+        '<div class="trap">兄弟배속(甲乙木·丙丁火…)은 主運용 고정값. 化五運(천간합)은 大運·客運용. 같은 甲이라도 主運=木, 大運=土!</div>';
+      var b=el("button","btn","다음 →");b.addEventListener("click",round);rev.appendChild(b);}
+    round();
+  })();
+
+  /* ===== G3 천간합 화오운 ===== */
+  (function(){
+    var HAP=[
+      {pair:"甲己",e:"土",story:"甲(큰 나무)+己(땅) → 土"},
+      {pair:"乙庚",e:"金",story:"乙+庚 → 金"},
+      {pair:"丙辛",e:"水",story:"丙+辛 → 水"},
+      {pair:"丁壬",e:"木",story:"壬(큰 바닷물)+丁(유기연료) → 식물성 플랑크톤 → 木"},
+      {pair:"戊癸",e:"火",story:"戊(먼지)+癸(수증기) → 번개 → 火"}
+    ];
+    var EL=["木","火","土","金","水"];
+    var item=$("#g3-item"),ch=$("#g3-choices"),rev=$("#g3-reveal"),sEl=$("#s3"),tEl=$("#t3");
+    if(!item||!ch)return;var score=0,total=0,cur=null;
+    function round(){cur=pick(HAP);rev.className="reveal";rev.innerHTML="";
+      item.innerHTML='<b style="color:var(--gold)">'+cur.pair[0]+'</b> + <b style="color:var(--gold)">'+cur.pair[1]+'</b> 合';
+      ch.className="choices c5";ch.innerHTML="";
+      shuffle(EL).forEach(function(e){var b=el("button","choice",pill(e));b.addEventListener("click",function(){ans(e,b);});ch.appendChild(b);});}
+    function ans(e,btn){var ok=(e===cur.e);total++;if(ok)score++;
+      Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+      if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cur.e)x.classList.add("correct");});
+      sEl.textContent=score;tEl.textContent=total;rev.className="reveal show";
+      rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 ✓":"誤 ✕")+'</div>'+
+        '<div class="src">'+cur.pair+'合 → '+pill(cur.e)+'<br><span style="font-size:13px;color:var(--muted)">'+cur.story+'</span></div>'+
+        '<div class="trap">甲己土·乙庚金·丙辛水·丁壬木·戊癸火 (丁부터 시작하면 木火土金水 順). 화오운은 大運·客運의 출발점.</div>';
+      var b=el("button","btn","다음 →");b.addEventListener("click",round);rev.appendChild(b);}
+    round();
+  })();
+
+  /* ===== G4 지지 삼음삼양 ===== */
+  (function(){
+    var JI=[
+      {pair:"子午",e:"少陰君火",note:"子(대설동지)+午(망종하지) → 君火"},
+      {pair:"丑未",e:"太陰濕土",note:"丑·未(눈·비 많은 시기) → 濕土"},
+      {pair:"寅申",e:"少陽相火",note:""},
+      {pair:"卯酉",e:"陽明燥金",note:""},
+      {pair:"辰戌",e:"太陽寒水",note:""},
+      {pair:"巳亥",e:"厥陰風木",note:""}
+    ];
+    var YUKGI=["厥陰風木","少陰君火","太陰濕土","少陽相火","太陽寒水","陽明燥金"];
+    var item=$("#g4-item"),ch=$("#g4-choices"),rev=$("#g4-reveal"),sEl=$("#s4"),tEl=$("#t4");
+    if(!item||!ch)return;var score=0,total=0,cur=null;
+    function round(){cur=pick(JI);rev.className="reveal";rev.innerHTML="";
+      item.innerHTML='地支 <b style="color:var(--gold);font-size:1.2em">'+cur.pair+'</b>';
+      ch.className="choices c6";ch.innerHTML="";
+      shuffle(YUKGI).forEach(function(y){var b=el("button","choice",y);b.addEventListener("click",function(){ans(y,b);});ch.appendChild(b);});}
+    function ans(y,btn){var ok=(y===cur.e);total++;if(ok)score++;
+      Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+      if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cur.e)x.classList.add("correct");});
+      sEl.textContent=score;tEl.textContent=total;rev.className="reveal show";
+      rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 ✓":"誤 ✕")+'</div>'+
+        '<div class="src">'+cur.pair+' → <b style="color:var(--gold)">'+cur.e+'</b>'+(cur.note?'<br><span style="font-size:13px;color:var(--muted)">'+cur.note+'</span>':'')+'</div>'+
+        '<div class="trap">子午少陰·丑未太陰·寅申少陽·卯酉陽明·辰戌太陽·巳亥厥陰. 지지 化五行은 客氣·司天 추산에 활용.</div>';
+      var b=el("button","btn","다음 →");b.addEventListener("click",round);rev.appendChild(b);}
+    round();
+  })();
+
+  /* ===== G5 태과불급 ===== */
+  (function(){
+    var GAN=[
+      {g:"甲",t:"太過",e:"土"},{g:"丙",t:"太過",e:"水"},{g:"戊",t:"太過",e:"火"},{g:"庚",t:"太過",e:"金"},{g:"壬",t:"太過",e:"木"},
+      {g:"乙",t:"不及",e:"金"},{g:"丁",t:"不及",e:"木"},{g:"己",t:"不及",e:"土"},{g:"辛",t:"不及",e:"水"},{g:"癸",t:"不及",e:"火"}
+    ];
+    var item=$("#g5-item"),ch=$("#g5-choices"),rev=$("#g5-reveal"),sEl=$("#s5"),tEl=$("#t5");
+    if(!item||!ch)return;var score=0,total=0,cur=null;
+    function round(){cur=pick(GAN);rev.className="reveal";rev.innerHTML="";
+      item.innerHTML='天干 <b style="color:var(--gold);font-size:1.3em">'+cur.g+'</b> 年';
+      ch.className="choices c2";ch.innerHTML="";
+      [["太過","양간 · 自氣 유행"],["不及","음간 · 克氣 유행"]].forEach(function(p){
+        var b=el("button","choice",p[0]+'<span class="sub">'+p[1]+'</span>');b.addEventListener("click",function(){ans(p[0],b);});ch.appendChild(b);});}
+    function ans(t,btn){var ok=(t===cur.t);total++;if(ok)score++;
+      Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+      if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent.indexOf(cur.t)===0)x.classList.add("correct");});
+      sEl.textContent=score;tEl.textContent=total;rev.className="reveal show";
+      rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 ✓":"誤 ✕")+'</div>'+
+        '<div class="src">'+cur.g+'年 → <b style="color:var(--gold)">'+cur.t+'</b> · 化五運 '+pill(cur.e)+(cur.t==="太過"?' 太過(자기 기운 유행)':' 不及(극하는 기운 유행, 복기)')+'</div>'+
+        '<div class="trap">양간 甲丙戊庚壬=太過 / 음간 乙丁己辛癸=不及. 太過=自氣 유행, 不及=克氣 유행 후 復氣(자복모구).</div>';
+      var b=el("button","btn","다음 →");b.addEventListener("click",round);rev.appendChild(b);}
+    round();
+  })();
+
+})();
+<\/script>
+
+<script>
+(function(){
+  function report(){ try{ parent.postMessage({__h: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)}, '*'); }catch(e){} }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if(window.MutationObserver){ new MutationObserver(report).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true}); }
+  document.addEventListener('click', function(){ setTimeout(report,60); setTimeout(report,360); });
+  setTimeout(report,150); setTimeout(report,600);
+})();
+<\/script>
+</body>
+</html>
+`,
+    oun2: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오운육기 · 五運(대운·주운·객운)</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line:#33384280;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;
+    --mok:#6fae6a;--hwa:#d05a44;--to:#d8a64a;--geum:#c9cdcb;--su:#5f86b8;
+    --ok:#7bbf73;--no:#d8635a;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header.hero{position:relative;padding:34px 16px 16px;border-bottom:1px solid var(--line2);overflow:hidden}
+  .hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hanzi-title{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(34px,7.5vw,56px);line-height:1;color:var(--paper);text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .hanzi-title .a{color:var(--su)}.hanzi-title .b{color:var(--gold)}
+  .title-meta{display:flex;flex-direction:column;gap:4px}
+  .title-ko{font-size:18px;color:var(--text);font-weight:600}
+  .title-sub{font-size:13px;color:var(--muted)}
+  .seal{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;line-height:1.05;text-align:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  .gz-strip{max-width:960px;margin:14px auto 0;display:flex;flex-direction:column;gap:4px}
+  .gz-row{display:flex;gap:5px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--serif);font-size:15px}
+  .gz-lab{font-family:var(--sans);font-size:11px;color:var(--muted);min-width:30px}
+  .gz-row .c{color:var(--su)} .gz-row .c2{color:var(--gold)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(15,16,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2);margin-bottom:22px}
+  .tabs-inner{max-width:960px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:8px 10px}
+  .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:9px;padding:8px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:96px;transition:.15s}
+  .tab .t-han{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:inherit}
+  .tab .t-ko{font-size:11px;opacity:.85}
+  .tab:hover{color:var(--text);background:var(--ink2)}
+  .tab.active{color:var(--paper);background:var(--ink3);border-color:var(--line2)}
+  .tab.active .t-han{color:var(--gold)}
+  .tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .panel{display:none;animation:fade .25s ease}.panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .game-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .game-head h2{font-family:var(--serif);font-size:23px;margin:0;color:var(--paper);letter-spacing:.04em}
+  .game-head p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:620px}
+  .scorebox{margin-left:auto;font-size:13px;color:var(--muted);background:var(--ink2);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;white-space:nowrap}
+  .scorebox b{color:var(--paper);font-size:15px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:20px;margin-bottom:16px}
+  .prompt-han{font-family:var(--serif);font-size:clamp(28px,7vw,44px);color:var(--text);letter-spacing:.05em;text-align:center;margin:8px 0 4px;line-height:1.3}
+  .prompt-label{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .ask{text-align:center;font-size:14px;color:var(--paper);margin:16px 0 12px;font-weight:600}
+  .choices{display:grid;gap:9px}
+  .choices.c2{grid-template-columns:repeat(2,1fr)}
+  .choices.c3{grid-template-columns:repeat(3,1fr)}
+  .choices.c5{grid-template-columns:repeat(5,1fr)}
+  .choices.c6{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:560px){.choices.c6{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.choices.c5{grid-template-columns:repeat(5,1fr)}}
+  .choice{background:var(--ink3);border:1px solid var(--line2);color:var(--text);font-family:var(--serif);font-size:16px;padding:13px 8px;border-radius:10px;cursor:pointer;transition:.13s;text-align:center;line-height:1.3}
+  .choice .sub{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px}
+  .choice:hover:not(:disabled){border-color:var(--paper);background:#272b34;transform:translateY(-1px)}
+  .choice:disabled{cursor:default;opacity:.92}
+  .choice.correct{border-color:var(--ok);background:rgba(123,191,115,.16);color:#cfe9c9}
+  .choice.wrong{border-color:var(--no);background:rgba(216,99,90,.16);color:#f0c4c0}
+  .choice:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .reveal{margin-top:16px;border-top:1px dashed var(--line2);padding-top:14px;display:none}
+  .reveal.show{display:block;animation:fade .2s}
+  .reveal .verdict{font-weight:700;font-size:15px;margin-bottom:8px}
+  .reveal .verdict.ok{color:var(--ok)}.reveal .verdict.no{color:var(--no)}
+  .src{font-family:var(--serif);color:var(--paper);font-size:16px;letter-spacing:.02em;line-height:1.7}
+  .gloss{font-size:13px;color:var(--muted);margin-top:6px}
+  .trap{font-size:12.5px;color:#e7b9a0;background:rgba(200,69,58,.10);border-left:3px solid var(--seal);padding:7px 11px;border-radius:0 7px 7px 0;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--seal);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:9px;cursor:pointer;margin-top:14px}
+  .btn:hover{background:#d8554a}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .wuxing-pill{display:inline-block;font-family:var(--serif);font-weight:700;padding:1px 9px;border-radius:16px;color:#0f1014;font-size:15px}
+  .p-mok{background:var(--mok)}.p-hwa{background:var(--hwa)}.p-to{background:var(--to)}.p-geum{background:var(--geum)}.p-su{background:var(--su)}
+  footer{max-width:960px;margin:34px auto 0;padding:0 16px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer .han{font-family:var(--serif);color:var(--paper)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .seq-slots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;margin:4px 0 16px;min-height:54px}
+  .seq-slot{min-width:66px;height:50px;border:1px dashed var(--line2);border-radius:8px;display:grid;place-items:center;font-family:var(--serif);font-size:16px;color:var(--muted)}
+  .seq-slot.filled{border-style:solid;border-color:var(--gold);color:var(--text);background:rgba(216,166,74,.12)}
+  .seq-arrow{color:var(--muted);font-size:13px}
+  .tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .tile{background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:10px 14px;font-family:var(--serif);font-size:17px;color:var(--text);cursor:pointer;transition:.13s;display:flex;flex-direction:column;align-items:center}
+  .tile .tn{font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:2px}
+  .tile:hover:not(.used){border-color:var(--paper);transform:translateY(-1px)}
+  .tile.used{opacity:.22;pointer-events:none}
+  .tile.bad{animation:shake .3s;border-color:var(--no)}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .clues{display:grid;gap:8px;margin:4px 0 6px}
+  .clue{display:flex;gap:10px;align-items:baseline;background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:9px 13px}
+  .clue .k{font-size:11px;color:var(--gold);font-weight:700;min-width:64px;font-family:var(--sans)}
+  .clue .v{font-family:var(--serif);font-size:16px;color:var(--text)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div class="hanzi-title"><span class="a">五</span><span class="b">運</span></div><div class="title-meta"><div class="title-ko">오운육기 · 五運(대운·주운·객운)</div><div class="title-sub">3장 2절 · 大運氣候 / 主運 / 客運 / 五音 / 客運五音</div></div><div class="seal">五運</div></div><div class="gz-strip"><div class="gz-row"><span class="gz-lab">天干</span><span class="c">甲 乙 丙 丁 戊 己 庚 辛 壬 癸</span></div><div class="gz-row"><span class="gz-lab">地支</span><span class="c2">子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥</span></div></div></header>
+<nav class="tabs" aria-label="게임 선택"><div class="tabs-inner">
+<button class="tab active" data-tab="g1"><span class="t-han">大運氣候</span><span class="t-ko">대운 기후</span></button>
+<button class="tab" data-tab="g2"><span class="t-han">主運</span><span class="t-ko">5단계 순서</span></button>
+<button class="tab" data-tab="g3"><span class="t-han">客運</span><span class="t-ko">초운 산출</span></button>
+<button class="tab" data-tab="g4"><span class="t-han">五音</span><span class="t-ko">각치궁상우</span></button>
+<button class="tab" data-tab="g5"><span class="t-han">客運五音</span><span class="t-ko">태소 초운</span></button>
+</div></nav>
+<main class="wrap">
+<section class="panel active" id="g1"><div class="game-head"><div><h2>大運 氣候 — 화오운별 기후</h2><p>天干年의 大運(화오운) 오행에 따른 기후(습승·조승·한승·풍승·화승)와 土 영향을 고르세요.</p></div><div class="scorebox">정답 <b id="s1">0</b> / <span id="t1">0</span></div></div><div class="card"><div class="prompt-han" id="g1-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g1-choices"></div><div class="reveal" id="g1-reveal"></div></div></section>
+<section class="panel" id="g2"><div class="game-head"><div><h2>主運 — 5단계 순서</h2><p>1년 五運界의 정상 기후. 大寒부터 상생순으로 배열하세요(매년 고정).</p></div><div class="scorebox">완성 <b id="s2">0</b></div></div><div class="card"><div class="seq-slots" id="g2-slots"></div><div class="ask">↓ 순서대로 누르세요</div><div class="tiles" id="g2-tiles"></div><div class="reveal" id="g2-reveal"></div></div></section>
+<section class="panel" id="g3"><div class="game-head"><div><h2>客運 — 初運 산출</h2><p>客運의 初運은 그 해 大運(화오운). 天干年을 보고 客運 初運 오행을 고르세요.</p></div><div class="scorebox">정답 <b id="s3">0</b> / <span id="t3">0</span></div></div><div class="card"><div class="prompt-han" id="g3-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g3-choices"></div><div class="reveal" id="g3-reveal"></div></div></section>
+<section class="panel" id="g4"><div class="game-head"><div><h2>五音 — 角徵宮商羽</h2><p>오행에 배속된 五音을 고르세요. 木角·火徵·土宮·金商·水羽.</p></div><div class="scorebox">정답 <b id="s4">0</b> / <span id="t4">0</span></div></div><div class="card"><div class="prompt-han" id="g4-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g4-choices"></div><div class="reveal" id="g4-reveal"></div></div></section>
+<section class="panel" id="g5"><div class="game-head"><div><h2>客運 五音 — 太少 初運</h2><p>客運 初運의 五音 = 大運 오행의 음 + 太(양간)/少(음간). 天干年으로 판정.</p></div><div class="scorebox">정답 <b id="s5">0</b> / <span id="t5">0</span></div></div><div class="card"><div class="prompt-han" id="g5-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g5-choices"></div><div class="reveal" id="g5-reveal"></div></div></section>
+</main>
+<footer><span class="han">甲己合土 乙庚合金 丙辛合水 丁壬合木 戊癸合火 ¦ 木角 火徵 土宮 金商 水羽</span><br>오운육기 · 3장 2절 학습 허브 · 단일 HTML</footer>
+<script>
+(function(){
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function sampleN(a,n,excl){var out=[],pool=shuffle(a.filter(function(x){return x!==excl;}));for(var i=0;i<n&&i<pool.length;i++)out.push(pool[i]);return out;}
+var ELC={"木":"p-mok","火":"p-hwa","土":"p-to","金":"p-geum","水":"p-su"};
+function pill(e){return '<span class="wuxing-pill '+(ELC[e]||'')+'">'+e+'</span>';}
+var DAEUN={"甲":"土","乙":"金","丙":"水","丁":"木","戊":"火","己":"土","庚":"金","辛":"水","壬":"木","癸":"火"};
+var YANG={"甲":1,"丙":1,"戊":1,"庚":1,"壬":1};
+var GANS=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+var EL5=["木","火","土","金","水"];
+(function(){var tabs=document.querySelectorAll(".tab");if(!tabs.length)return;
+  Array.prototype.forEach.call(tabs,function(tab){tab.addEventListener("click",function(){
+    var id=tab.getAttribute("data-tab");
+    Array.prototype.forEach.call(tabs,function(t){t.classList.toggle("active",t===tab);});
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.toggle("active",p.id===id);});
+  });});})();
+
+/* G1 大運 기후 */
+(function(){
+  var KW=["습승","조승","한승","풍승","화승"];
+  var KWMAP={"土":"습승","金":"조승","水":"한승","木":"풍승","火":"화승"};
+  var TOY={"土":"土泥(니)","金":"土乾(건)","水":"土裂(열)","木":"土動(동)","火":"土熱地固"};
+  var item=$("#g1-item"),ch=$("#g1-choices"),rev=$("#g1-reveal"),sEl=$("#s1"),tEl=$("#t1");
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(GANS);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML='天干 <b style="color:var(--gold);font-size:1.3em">'+cur+'</b> 年';
+    ch.className="choices c5";ch.innerHTML="";
+    shuffle(KW).forEach(function(k){var b=el("button","choice",k);b.addEventListener("click",function(){ans(k,b);});ch.appendChild(b);});}
+  function ans(k,btn){var cor=KWMAP[DAEUN[cur]];var ok=(k===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+
+      '<div class="src">'+cur+'年 \\u2192 大運 '+pill(DAEUN[cur])+(YANG[cur]?'(太過)':'(不及)')+' \\u00b7 기후 <b style="color:var(--gold)">'+cor+'</b> \\u00b7 土영향 '+TOY[DAEUN[cur]]+'</div>'+
+      '<div class="trap">大運(화오운) 기후: 土습승\\u00b7金조승\\u00b7水한승\\u00b7木풍승\\u00b7火화승. 土영향: 土泥\\u00b7土乾\\u00b7土裂\\u00b7土動\\u00b7土熱地固.</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+/* G2 主運 순서 */
+(function(){
+  var SEQ=[{e:"木"},{e:"火"},{e:"土"},{e:"金"},{e:"水"}];
+  var slots=$("#g2-slots"),tiles=$("#g2-tiles"),rev=$("#g2-reveal"),sEl=$("#s2");
+  if(!slots||!tiles)return;var step=0,done=0;
+  function round(){step=0;rev.className="reveal";rev.innerHTML="";slots.innerHTML="";
+    SEQ.forEach(function(_,i){if(i>0)slots.appendChild(el("span","seq-arrow","\\u203a"));var s=el("div","seq-slot","?");s.setAttribute("data-i",i);slots.appendChild(s);});
+    tiles.innerHTML="";
+    shuffle(SEQ.map(function(x,i){return {x:x,i:i};})).forEach(function(o){var t=el("button","tile",pill(o.x.e));t.setAttribute("data-i",o.i);t.addEventListener("click",function(){ct(o.i,t);});tiles.appendChild(t);});}
+  function ct(i,btn){if(i===step){btn.classList.add("used");var sl=slots.querySelector('.seq-slot[data-i="'+step+'"]');if(sl){sl.innerHTML=pill(SEQ[step].e);sl.classList.add("filled");}step++;if(step>=SEQ.length)fin();}else{btn.classList.add("bad");setTimeout(function(){btn.classList.remove("bad");},320);}}
+  function fin(){done++;sEl.textContent=done;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict ok">완성 \\u2713 主運</div>'+
+      '<div class="src">大寒부터 木\\u2192火\\u2192土\\u2192金\\u2192水 (각 73일 5각, 매년 고정불변)</div>'+
+      '<div class="trap">主運=1년 5단계 정상 기후, 大寒 기점 상생순 고정. 시작일은 같으나 시각(刻)은 다름.</div>';
+    var b=el("button","btn","다시 섞기 \\u21bb");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+/* G3 客運 초운 */
+(function(){
+  var ORD=["木","火","土","金","水"];
+  function cseq(st){var i=ORD.indexOf(st),r=[];for(var k=0;k<5;k++)r.push(ORD[(i+k)%5]);return r;}
+  var item=$("#g3-item"),ch=$("#g3-choices"),rev=$("#g3-reveal"),sEl=$("#s3"),tEl=$("#t3");
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(GANS);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML='天干 <b style="color:var(--gold);font-size:1.3em">'+cur+'</b> 年 \\u00b7 客運 初運?';
+    ch.className="choices c5";ch.innerHTML="";
+    shuffle(ORD).forEach(function(e){var b=el("button","choice",pill(e));b.addEventListener("click",function(){ans(e,b);});ch.appendChild(b);});}
+  function ans(e,btn){var cor=DAEUN[cur];var ok=(e===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    var seq=cseq(cor).map(function(e){return pill(e);}).join(" \\u2192 ");
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+
+      '<div class="src">'+cur+'年 客運 初運 = 大運 '+pill(cor)+'<br>客運 추이(상생순): '+seq+'</div>'+
+      '<div class="trap">客運도 化五運으로 하며 大運이 客運의 初運, 이후 상생순 추이. 매년 변경(이상 기후 설명).</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+/* G4 五音 */
+(function(){
+  var OEUM={"木":"角","火":"徵","土":"宮","金":"商","水":"羽"};
+  var SND={"角":"나무 두들기는 소리","徵":"불타는 소리","宮":"울리는 소리","商":"쇠 두들기는 소리","羽":"물 흐르는 소리"};
+  var FIVE=["角","徵","宮","商","羽"];
+  var item=$("#g4-item"),ch=$("#g4-choices"),rev=$("#g4-reveal"),sEl=$("#s4"),tEl=$("#t4");
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(EL5);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML='五行 '+pill(cur)+' 의 五音?';
+    ch.className="choices c5";ch.innerHTML="";
+    shuffle(FIVE).forEach(function(o){var b=el("button","choice",o);b.addEventListener("click",function(){ans(o,b);});ch.appendChild(b);});}
+  function ans(o,btn){var cor=OEUM[cur];var ok=(o===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+
+      '<div class="src">'+pill(cur)+' \\u2192 <b style="color:var(--gold)">'+cor+'</b> ('+SND[cor]+')</div>'+
+      '<div class="trap">木角\\u00b7火徵\\u00b7土宮\\u00b7金商\\u00b7水羽 (角徵宮商羽 順). 양간=太, 음간(불급)=少로 시작.</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+/* G5 客運 五音 초운 */
+(function(){
+  var OEUM={"木":"角","火":"徵","土":"宮","金":"商","水":"羽"};
+  var ALL=["太角","太徵","太宮","太商","太羽","少角","少徵","少宮","少商","少羽"];
+  function chord(g){return (YANG[g]?"太":"少")+OEUM[DAEUN[g]];}
+  var item=$("#g5-item"),ch=$("#g5-choices"),rev=$("#g5-reveal"),sEl=$("#s5"),tEl=$("#t5");
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(GANS);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML='天干 <b style="color:var(--gold);font-size:1.3em">'+cur+'</b> 年 \\u00b7 客運 初運 五音?';
+    var cor=chord(cur);var opts=sampleN(ALL,4,cor).concat([cor]);opts=shuffle(opts);
+    ch.className="choices c5";ch.innerHTML="";
+    opts.forEach(function(o){var b=el("button","choice",o);b.addEventListener("click",function(){ans(o,b);});ch.appendChild(b);});}
+  function ans(o,btn){var cor=chord(cur);var ok=(o===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.textContent===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+
+      '<div class="src">'+cur+'年 \\u2192 <b style="color:var(--gold)">'+cor+'</b> (大運 '+pill(DAEUN[cur])+'='+OEUM[DAEUN[cur]]+', '+(YANG[cur]?'양간\\u2192太':'음간\\u2192少')+')</div>'+
+      '<div class="trap">客運 初運 五音 = 大運 오행의 음 + 太/少(양간 太\\u00b7음간 少). 예: 甲子\\u2192太宮, 乙酉\\u2192少商.</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+})();
+
+<\/script>
+
+<script>
+(function(){
+  function report(){ try{ parent.postMessage({__h: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)}, '*'); }catch(e){} }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if(window.MutationObserver){ new MutationObserver(report).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true}); }
+  document.addEventListener('click', function(){ setTimeout(report,60); setTimeout(report,360); });
+  setTimeout(report,150); setTimeout(report,600);
+})();
+<\/script>
+</body>
+</html>
+`,
+    oun3: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오운육기 · 六氣(주기·객기·사천재천)</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line:#33384280;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;
+    --mok:#6fae6a;--hwa:#d05a44;--to:#d8a64a;--geum:#c9cdcb;--su:#5f86b8;
+    --ok:#7bbf73;--no:#d8635a;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header.hero{position:relative;padding:34px 16px 16px;border-bottom:1px solid var(--line2);overflow:hidden}
+  .hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hanzi-title{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(34px,7.5vw,56px);line-height:1;color:var(--paper);text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .hanzi-title .a{color:var(--su)}.hanzi-title .b{color:var(--gold)}
+  .title-meta{display:flex;flex-direction:column;gap:4px}
+  .title-ko{font-size:18px;color:var(--text);font-weight:600}
+  .title-sub{font-size:13px;color:var(--muted)}
+  .seal{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;line-height:1.05;text-align:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  .gz-strip{max-width:960px;margin:14px auto 0;display:flex;flex-direction:column;gap:4px}
+  .gz-row{display:flex;gap:5px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--serif);font-size:15px}
+  .gz-lab{font-family:var(--sans);font-size:11px;color:var(--muted);min-width:30px}
+  .gz-row .c{color:var(--su)} .gz-row .c2{color:var(--gold)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(15,16,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2);margin-bottom:22px}
+  .tabs-inner{max-width:960px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:8px 10px}
+  .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:9px;padding:8px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:96px;transition:.15s}
+  .tab .t-han{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:inherit}
+  .tab .t-ko{font-size:11px;opacity:.85}
+  .tab:hover{color:var(--text);background:var(--ink2)}
+  .tab.active{color:var(--paper);background:var(--ink3);border-color:var(--line2)}
+  .tab.active .t-han{color:var(--gold)}
+  .tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .panel{display:none;animation:fade .25s ease}.panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .game-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .game-head h2{font-family:var(--serif);font-size:23px;margin:0;color:var(--paper);letter-spacing:.04em}
+  .game-head p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:620px}
+  .scorebox{margin-left:auto;font-size:13px;color:var(--muted);background:var(--ink2);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;white-space:nowrap}
+  .scorebox b{color:var(--paper);font-size:15px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:20px;margin-bottom:16px}
+  .prompt-han{font-family:var(--serif);font-size:clamp(28px,7vw,44px);color:var(--text);letter-spacing:.05em;text-align:center;margin:8px 0 4px;line-height:1.3}
+  .prompt-label{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .ask{text-align:center;font-size:14px;color:var(--paper);margin:16px 0 12px;font-weight:600}
+  .choices{display:grid;gap:9px}
+  .choices.c2{grid-template-columns:repeat(2,1fr)}
+  .choices.c3{grid-template-columns:repeat(3,1fr)}
+  .choices.c5{grid-template-columns:repeat(5,1fr)}
+  .choices.c6{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:560px){.choices.c6{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.choices.c5{grid-template-columns:repeat(5,1fr)}}
+  .choice{background:var(--ink3);border:1px solid var(--line2);color:var(--text);font-family:var(--serif);font-size:16px;padding:13px 8px;border-radius:10px;cursor:pointer;transition:.13s;text-align:center;line-height:1.3}
+  .choice .sub{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px}
+  .choice:hover:not(:disabled){border-color:var(--paper);background:#272b34;transform:translateY(-1px)}
+  .choice:disabled{cursor:default;opacity:.92}
+  .choice.correct{border-color:var(--ok);background:rgba(123,191,115,.16);color:#cfe9c9}
+  .choice.wrong{border-color:var(--no);background:rgba(216,99,90,.16);color:#f0c4c0}
+  .choice:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .reveal{margin-top:16px;border-top:1px dashed var(--line2);padding-top:14px;display:none}
+  .reveal.show{display:block;animation:fade .2s}
+  .reveal .verdict{font-weight:700;font-size:15px;margin-bottom:8px}
+  .reveal .verdict.ok{color:var(--ok)}.reveal .verdict.no{color:var(--no)}
+  .src{font-family:var(--serif);color:var(--paper);font-size:16px;letter-spacing:.02em;line-height:1.7}
+  .gloss{font-size:13px;color:var(--muted);margin-top:6px}
+  .trap{font-size:12.5px;color:#e7b9a0;background:rgba(200,69,58,.10);border-left:3px solid var(--seal);padding:7px 11px;border-radius:0 7px 7px 0;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--seal);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:9px;cursor:pointer;margin-top:14px}
+  .btn:hover{background:#d8554a}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .wuxing-pill{display:inline-block;font-family:var(--serif);font-weight:700;padding:1px 9px;border-radius:16px;color:#0f1014;font-size:15px}
+  .p-mok{background:var(--mok)}.p-hwa{background:var(--hwa)}.p-to{background:var(--to)}.p-geum{background:var(--geum)}.p-su{background:var(--su)}
+  footer{max-width:960px;margin:34px auto 0;padding:0 16px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer .han{font-family:var(--serif);color:var(--paper)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .seq-slots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;margin:4px 0 16px;min-height:54px}
+  .seq-slot{min-width:66px;height:50px;border:1px dashed var(--line2);border-radius:8px;display:grid;place-items:center;font-family:var(--serif);font-size:16px;color:var(--muted)}
+  .seq-slot.filled{border-style:solid;border-color:var(--gold);color:var(--text);background:rgba(216,166,74,.12)}
+  .seq-arrow{color:var(--muted);font-size:13px}
+  .tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .tile{background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:10px 14px;font-family:var(--serif);font-size:17px;color:var(--text);cursor:pointer;transition:.13s;display:flex;flex-direction:column;align-items:center}
+  .tile .tn{font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:2px}
+  .tile:hover:not(.used){border-color:var(--paper);transform:translateY(-1px)}
+  .tile.used{opacity:.22;pointer-events:none}
+  .tile.bad{animation:shake .3s;border-color:var(--no)}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .clues{display:grid;gap:8px;margin:4px 0 6px}
+  .clue{display:flex;gap:10px;align-items:baseline;background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:9px 13px}
+  .clue .k{font-size:11px;color:var(--gold);font-weight:700;min-width:64px;font-family:var(--sans)}
+  .clue .v{font-family:var(--serif);font-size:16px;color:var(--text)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div class="hanzi-title"><span class="a">六</span><span class="b">氣</span></div><div class="title-meta"><div class="title-ko">오운육기 · 六氣(주기·객기·사천재천)</div><div class="title-sub">3장 3절 · 司天在泉 / 主氣 / 客主加臨 / 不遷正 / 勝復</div></div><div class="seal">六氣</div></div><div class="gz-strip"><div class="gz-row"><span class="gz-lab">天干</span><span class="c">甲 乙 丙 丁 戊 己 庚 辛 壬 癸</span></div><div class="gz-row"><span class="gz-lab">地支</span><span class="c2">子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥</span></div></div></header>
+<nav class="tabs" aria-label="게임 선택"><div class="tabs-inner">
+<button class="tab active" data-tab="g1"><span class="t-han">司天在泉</span><span class="t-ko">사천·재천</span></button>
+<button class="tab" data-tab="g2"><span class="t-han">主氣</span><span class="t-ko">6기 순서</span></button>
+<button class="tab" data-tab="g3"><span class="t-han">客主加臨</span><span class="t-ko">순·역·동기</span></button>
+<button class="tab" data-tab="g4"><span class="t-han">不遷正</span><span class="t-ko">불천정·불퇴위</span></button>
+<button class="tab" data-tab="g5"><span class="t-han">勝復</span><span class="t-ko">승기·복기</span></button>
+</div></nav>
+<main class="wrap">
+<section class="panel active" id="g1"><div class="game-head"><div><h2>司天 在泉 — 지지 추산</h2><p>年支(대대 지지)로 司天 육기를 고르세요. 司天=상반년·三之氣, 在泉=하반기·終之氣.</p></div><div class="scorebox">정답 <b id="s1">0</b> / <span id="t1">0</span></div></div><div class="card"><div class="prompt-han" id="g1-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c6" id="g1-choices"></div><div class="reveal" id="g1-reveal"></div></div></section>
+<section class="panel" id="g2"><div class="game-head"><div><h2>主氣 — 6기 순서</h2><p>매년 고정. 大寒부터 初之氣, 상생순(궐음→소음→소양→태음→양명→태양)으로 배열.</p></div><div class="scorebox">완성 <b id="s2">0</b></div></div><div class="card"><div class="seq-slots" id="g2-slots"></div><div class="ask">↓ 순서대로 누르세요</div><div class="tiles" id="g2-tiles"></div><div class="reveal" id="g2-reveal"></div></div></section>
+<section class="panel" id="g3"><div class="game-head"><div><h2>客主加臨 — 氣化之逆順</h2><p>객기와 주기를 상합하여 順·逆·同氣를 판정하세요. 객극주·군화상화 위치가 기준.</p></div><div class="scorebox">정답 <b id="s3">0</b> / <span id="t3">0</span></div></div><div class="card"><div class="prompt-han" id="g3-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c3" id="g3-choices"></div><div class="reveal" id="g3-reveal"></div></div></section>
+<section class="panel" id="g4"><div class="game-head"><div><h2>不遷正 · 不退位</h2><p>마땅한 司天之氣가 안 옴(不遷正) / 前年 司天이 안 물러감(不退位)을 판정하세요.</p></div><div class="scorebox">정답 <b id="s4">0</b> / <span id="t4">0</span></div></div><div class="card"><div class="prompt-han" id="g4-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c2" id="g4-choices"></div><div class="reveal" id="g4-reveal"></div></div></section>
+<section class="panel" id="g5"><div class="game-head"><div><h2>勝復 — 승기·복기</h2><p>上半期 이상=勝氣, 下半期 상반 이상=復氣. 勝氣 있고 復氣 없으면 災殃.</p></div><div class="scorebox">정답 <b id="s5">0</b> / <span id="t5">0</span></div></div><div class="card"><div class="prompt-han" id="g5-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c2" id="g5-choices"></div><div class="reveal" id="g5-reveal"></div></div></section>
+</main>
+<footer><span class="han">子午少陰 丑未太陰 寅申少陽 卯酉陽明 辰戌太陽 巳亥厥陰 ¦ 主氣 厥少少太陽太</span><br>오운육기 · 3장 3절 학습 허브 · 단일 HTML</footer>
+<script>
+(function(){
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function mkQuiz(o){
+  var item=$("#"+o.gid+"-item"),ch=$("#"+o.gid+"-choices"),rev=$("#"+o.gid+"-reveal"),
+      sEl=$("#s"+o.gid.slice(1)),tEl=$("#t"+o.gid.slice(1));
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(o.data);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML=o.item(cur);
+    ch.className="choices "+o.cls;ch.innerHTML="";
+    o.opts(cur).forEach(function(op){var b=el("button","choice",op.label);b.setAttribute("data-v",op.val);b.addEventListener("click",function(){ans(op.val,b);});ch.appendChild(b);});}
+  function ans(val,btn){var cor=o.correct(cur);var ok=(val===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.getAttribute("data-v")===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+o.reveal(cur)+'<div class="trap">'+o.trap+'</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+}
+var ELC={"木":"p-mok","火":"p-hwa","土":"p-to","金":"p-geum","水":"p-su"};
+function pill(e){return '<span class="wuxing-pill '+(ELC[e]||'')+'">'+e+'</span>';}
+var SACHEON={"子午":["少陰君火","陽明燥金"],"丑未":["太陰濕土","太陽寒水"],"寅申":["少陽相火","厥陰風木"],"卯酉":["陽明燥金","少陰君火"],"辰戌":["太陽寒水","太陰濕土"],"巳亥":["厥陰風木","少陽相火"]};
+var YUKGI6=["厥陰風木","少陰君火","太陰濕土","少陽相火","太陽寒水","陽明燥金"];
+function opt6(){return YUKGI6.map(function(y){return {label:y,val:y};});}
+(function(){var tabs=document.querySelectorAll(".tab");if(!tabs.length)return;
+  Array.prototype.forEach.call(tabs,function(tab){tab.addEventListener("click",function(){
+    var id=tab.getAttribute("data-tab");
+    Array.prototype.forEach.call(tabs,function(t){t.classList.toggle("active",t===tab);});
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.toggle("active",p.id===id);});
+  });});})();
+
+/* G1 司天在泉 */
+mkQuiz({gid:"g1",cls:"c6",data:Object.keys(SACHEON),
+  item:function(c){return '地支 <b style="color:var(--gold);font-size:1.2em">'+c+'</b> 年 \\u00b7 司天?';},
+  opts:function(){return shuffle(opt6());},
+  correct:function(c){return SACHEON[c][0];},
+  reveal:function(c){return '<div class="src">'+c+' \\u2192 司天 <b style="color:var(--gold)">'+SACHEON[c][0]+'</b> / 在泉 <b style="color:var(--su)">'+SACHEON[c][1]+'</b></div>';},
+  trap:"子午少陰\\u00b7丑未太陰\\u00b7寅申少陽\\u00b7卯酉陽明\\u00b7辰戌太陽\\u00b7巳亥厥陰. 司天=상반년\\u00b7三之氣, 在泉=하반기\\u00b7終之氣(정반대 육기)."});
+
+/* G2 主氣 순서 sequence */
+(function(){
+  var SEQ=[{n:"厥陰風木"},{n:"少陰君火"},{n:"少陽相火"},{n:"太陰濕土"},{n:"陽明燥金"},{n:"太陽寒水"}];
+  var slots=$("#g2-slots"),tiles=$("#g2-tiles"),rev=$("#g2-reveal"),sEl=$("#s2");
+  if(!slots||!tiles)return;var step=0,done=0;
+  function round(){step=0;rev.className="reveal";rev.innerHTML="";slots.innerHTML="";
+    SEQ.forEach(function(_,i){if(i>0)slots.appendChild(el("span","seq-arrow","\\u203a"));var s=el("div","seq-slot","?");s.style.minWidth="74px";s.style.fontSize="13px";s.setAttribute("data-i",i);slots.appendChild(s);});
+    tiles.innerHTML="";
+    shuffle(SEQ.map(function(x,i){return {x:x,i:i};})).forEach(function(o){var t=el("button","tile",o.x.n);t.style.fontSize="15px";t.setAttribute("data-i",o.i);t.addEventListener("click",function(){ct(o.i,t);});tiles.appendChild(t);});}
+  function ct(i,btn){if(i===step){btn.classList.add("used");var sl=slots.querySelector('.seq-slot[data-i="'+step+'"]');if(sl){sl.textContent=SEQ[step].n;sl.classList.add("filled");}step++;if(step>=SEQ.length)fin();}else{btn.classList.add("bad");setTimeout(function(){btn.classList.remove("bad");},320);}}
+  function fin(){done++;sEl.textContent=done;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict ok">완성 \\u2713 主氣</div>'+
+      '<div class="src">大寒부터 初之氣 \\u2014 厥陰風木\\u2192少陰君火\\u2192少陽相火\\u2192太陰濕土\\u2192陽明燥金\\u2192太陽寒水 (상생순 고정)</div>'+
+      '<div class="trap">主氣=매년 계절 기후의 정상 규율(고정). 主運과 같이 大寒 기점, 각 기 = 4절기. 客氣와 헷갈리지 말 것.</div>';
+    var b=el("button","btn","다시 섞기 \\u21bb");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+})();
+
+/* G3 客主加臨 순역 */
+mkQuiz({gid:"g3",cls:"c3",data:[
+    {cond:"客이 主를 克 (객극주)",a:"順"},
+    {cond:"客이 主를 生 (객생주)",a:"順"},
+    {cond:"君火가 相火 위에 있음",a:"順"},
+    {cond:"主가 客을 克 (주극객)",a:"逆"},
+    {cond:"主가 客을 生 (주생객)",a:"逆"},
+    {cond:"相火가 君火 위에 있음",a:"逆"},
+    {cond:"客\\u00b7主의 성질이 같음",a:"同氣"}
+  ],
+  item:function(c){return '「'+c.cond+'」';},
+  opts:function(){return shuffle([{label:"順",val:"順"},{label:"逆",val:"逆"},{label:"同氣",val:"同氣"}]);},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">'+c.cond+' \\u2192 <b style="color:var(--gold)">'+c.a+'</b></div>';},
+  trap:"氣化之逆順: 順(객극주\\u00b7객생주\\u00b7君火가 相火 위)=이상변화 심하지 않음 / 逆(주극객\\u00b7주생객\\u00b7相火가 君火 위)=심함 / 同氣=등가(거의 없음)."});
+
+/* G4 不遷正 不退位 */
+mkQuiz({gid:"g4",cls:"c2",data:[
+    {desc:"마땅히 도래해야 할 그해 司天之氣가 오지 않음",a:"不遷正"},
+    {desc:"마땅히 물러가야 할 前年 司天之氣가 여전히 머묾(停留)",a:"不退位"},
+    {desc:"己亥(司天 厥陰風木)\\u2192庚子(司天 少陰君火)인데 봄에 바람이 너무 많음 \\u2014 厥陰이 안 물러감",a:"不退位"},
+    {desc:"庚子年인데 마땅히 와야 할 少陰君火가 아직 오지 않음",a:"不遷正"}
+  ],
+  item:function(c){return '「'+c.desc+'」';},
+  opts:function(){return shuffle([{label:"不遷正",val:"不遷正"},{label:"不退位",val:"不退位"}]);},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">\\u2192 <b style="color:var(--gold)">'+c.a+'</b></div>';},
+  trap:"不遷正=마땅히 올 司天이 오지 않음(未到). 不退位=마땅히 갈 前年 司天이 안 물러감(停留). 한 해에 둘이 동시에 나타날 수 있음."});
+
+/* G5 勝復 */
+mkQuiz({gid:"g5",cls:"c2",data:[
+    {desc:"上半期(初\\u2192三氣, 司天 지배)에 발생한 이상기후",a:"勝氣"},
+    {desc:"下半期(四\\u2192終氣, 在泉 지배)에 발생한 이상기후",a:"復氣"},
+    {desc:"勝氣에 상반되게 나중에 나타나는 기운 (後)",a:"復氣"},
+    {desc:"먼저 나타나는 이상 기운 (先)",a:"勝氣"}
+  ],
+  item:function(c){return '「'+c.desc+'」';},
+  opts:function(){return shuffle([{label:"勝氣",val:"勝氣"},{label:"復氣",val:"復氣"}]);},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">\\u2192 <b style="color:var(--gold)">'+c.a+'</b></div>';},
+  trap:"上半期 이상=勝氣 / 下半期 상반 이상=復氣. 勝氣의 유무에는 규율이 없고(불규칙), 勝氣가 있는데 復氣가 없으면 災殃이 생긴다."});
+
+})();
+
+<\/script>
+
+<script>
+(function(){
+  function report(){ try{ parent.postMessage({__h: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)}, '*'); }catch(e){} }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if(window.MutationObserver){ new MutationObserver(report).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true}); }
+  document.addEventListener('click', function(){ setTimeout(report,60); setTimeout(report,360); });
+  setTimeout(report,150); setTimeout(report,600);
+})();
+<\/script>
+</body>
+</html>
+`,
+    oun4: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오운육기 · 運氣相合·同化·平氣</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line:#33384280;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;
+    --mok:#6fae6a;--hwa:#d05a44;--to:#d8a64a;--geum:#c9cdcb;--su:#5f86b8;
+    --ok:#7bbf73;--no:#d8635a;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header.hero{position:relative;padding:34px 16px 16px;border-bottom:1px solid var(--line2);overflow:hidden}
+  .hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hanzi-title{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(34px,7.5vw,56px);line-height:1;color:var(--paper);text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .hanzi-title .a{color:var(--su)}.hanzi-title .b{color:var(--gold)}
+  .title-meta{display:flex;flex-direction:column;gap:4px}
+  .title-ko{font-size:18px;color:var(--text);font-weight:600}
+  .title-sub{font-size:13px;color:var(--muted)}
+  .seal{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;line-height:1.05;text-align:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  .gz-strip{max-width:960px;margin:14px auto 0;display:flex;flex-direction:column;gap:4px}
+  .gz-row{display:flex;gap:5px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--serif);font-size:15px}
+  .gz-lab{font-family:var(--sans);font-size:11px;color:var(--muted);min-width:30px}
+  .gz-row .c{color:var(--su)} .gz-row .c2{color:var(--gold)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(15,16,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2);margin-bottom:22px}
+  .tabs-inner{max-width:960px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:8px 10px}
+  .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:9px;padding:8px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:96px;transition:.15s}
+  .tab .t-han{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:inherit}
+  .tab .t-ko{font-size:11px;opacity:.85}
+  .tab:hover{color:var(--text);background:var(--ink2)}
+  .tab.active{color:var(--paper);background:var(--ink3);border-color:var(--line2)}
+  .tab.active .t-han{color:var(--gold)}
+  .tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .panel{display:none;animation:fade .25s ease}.panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .game-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .game-head h2{font-family:var(--serif);font-size:23px;margin:0;color:var(--paper);letter-spacing:.04em}
+  .game-head p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:620px}
+  .scorebox{margin-left:auto;font-size:13px;color:var(--muted);background:var(--ink2);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;white-space:nowrap}
+  .scorebox b{color:var(--paper);font-size:15px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:20px;margin-bottom:16px}
+  .prompt-han{font-family:var(--serif);font-size:clamp(28px,7vw,44px);color:var(--text);letter-spacing:.05em;text-align:center;margin:8px 0 4px;line-height:1.3}
+  .prompt-label{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .ask{text-align:center;font-size:14px;color:var(--paper);margin:16px 0 12px;font-weight:600}
+  .choices{display:grid;gap:9px}
+  .choices.c2{grid-template-columns:repeat(2,1fr)}
+  .choices.c3{grid-template-columns:repeat(3,1fr)}
+  .choices.c5{grid-template-columns:repeat(5,1fr)}
+  .choices.c6{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:560px){.choices.c6{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.choices.c5{grid-template-columns:repeat(5,1fr)}}
+  .choice{background:var(--ink3);border:1px solid var(--line2);color:var(--text);font-family:var(--serif);font-size:16px;padding:13px 8px;border-radius:10px;cursor:pointer;transition:.13s;text-align:center;line-height:1.3}
+  .choice .sub{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px}
+  .choice:hover:not(:disabled){border-color:var(--paper);background:#272b34;transform:translateY(-1px)}
+  .choice:disabled{cursor:default;opacity:.92}
+  .choice.correct{border-color:var(--ok);background:rgba(123,191,115,.16);color:#cfe9c9}
+  .choice.wrong{border-color:var(--no);background:rgba(216,99,90,.16);color:#f0c4c0}
+  .choice:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .reveal{margin-top:16px;border-top:1px dashed var(--line2);padding-top:14px;display:none}
+  .reveal.show{display:block;animation:fade .2s}
+  .reveal .verdict{font-weight:700;font-size:15px;margin-bottom:8px}
+  .reveal .verdict.ok{color:var(--ok)}.reveal .verdict.no{color:var(--no)}
+  .src{font-family:var(--serif);color:var(--paper);font-size:16px;letter-spacing:.02em;line-height:1.7}
+  .gloss{font-size:13px;color:var(--muted);margin-top:6px}
+  .trap{font-size:12.5px;color:#e7b9a0;background:rgba(200,69,58,.10);border-left:3px solid var(--seal);padding:7px 11px;border-radius:0 7px 7px 0;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--seal);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:9px;cursor:pointer;margin-top:14px}
+  .btn:hover{background:#d8554a}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .wuxing-pill{display:inline-block;font-family:var(--serif);font-weight:700;padding:1px 9px;border-radius:16px;color:#0f1014;font-size:15px}
+  .p-mok{background:var(--mok)}.p-hwa{background:var(--hwa)}.p-to{background:var(--to)}.p-geum{background:var(--geum)}.p-su{background:var(--su)}
+  footer{max-width:960px;margin:34px auto 0;padding:0 16px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer .han{font-family:var(--serif);color:var(--paper)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .seq-slots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;margin:4px 0 16px;min-height:54px}
+  .seq-slot{min-width:66px;height:50px;border:1px dashed var(--line2);border-radius:8px;display:grid;place-items:center;font-family:var(--serif);font-size:16px;color:var(--muted)}
+  .seq-slot.filled{border-style:solid;border-color:var(--gold);color:var(--text);background:rgba(216,166,74,.12)}
+  .seq-arrow{color:var(--muted);font-size:13px}
+  .tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .tile{background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:10px 14px;font-family:var(--serif);font-size:17px;color:var(--text);cursor:pointer;transition:.13s;display:flex;flex-direction:column;align-items:center}
+  .tile .tn{font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:2px}
+  .tile:hover:not(.used){border-color:var(--paper);transform:translateY(-1px)}
+  .tile.used{opacity:.22;pointer-events:none}
+  .tile.bad{animation:shake .3s;border-color:var(--no)}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .clues{display:grid;gap:8px;margin:4px 0 6px}
+  .clue{display:flex;gap:10px;align-items:baseline;background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:9px 13px}
+  .clue .k{font-size:11px;color:var(--gold);font-weight:700;min-width:64px;font-family:var(--sans)}
+  .clue .v{font-family:var(--serif);font-size:16px;color:var(--text)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div class="hanzi-title"><span class="a">運</span><span class="b">化</span></div><div class="title-meta"><div class="title-ko">오운육기 · 運氣相合·同化·平氣</div><div class="title-sub">3장 4절 · 運氣相臨 / 運氣同化 / 平氣 / 五運三氣 / 同化年</div></div><div class="seal">運化</div></div><div class="gz-strip"><div class="gz-row"><span class="gz-lab">天干</span><span class="c">甲 乙 丙 丁 戊 己 庚 辛 壬 癸</span></div><div class="gz-row"><span class="gz-lab">地支</span><span class="c2">子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥</span></div></div></header>
+<nav class="tabs" aria-label="게임 선택"><div class="tabs-inner">
+<button class="tab active" data-tab="g1"><span class="t-han">運氣相臨</span><span class="t-ko">순화·천형</span></button>
+<button class="tab" data-tab="g2"><span class="t-han">運氣同化</span><span class="t-ko">천부·세회</span></button>
+<button class="tab" data-tab="g3"><span class="t-han">平氣</span><span class="t-ko">피억·득조·간득부</span></button>
+<button class="tab" data-tab="g4"><span class="t-han">五運三氣</span><span class="t-ko">부화위화발생</span></button>
+<button class="tab" data-tab="g5"><span class="t-han">同化年</span><span class="t-ko">연도판정</span></button>
+</div></nav>
+<main class="wrap">
+<section class="panel active" id="g1"><div class="game-head"><div><h2>運氣相臨 — 성쇠</h2><p>大運과 司天之氣의 상하관계: 順化(기생운)·天刑(기극운)·小逆(운생기)·不和(운극기).</p></div><div class="scorebox">정답 <b id="s1">0</b> / <span id="t1">0</span></div></div><div class="card"><div class="prompt-han" id="g1-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c2" id="g1-choices"></div><div class="reveal" id="g1-reveal"></div></div></section>
+<section class="panel" id="g2"><div class="game-head"><div><h2>運氣同化 — 정의</h2><p>天符(=사천)·歲會(=년지)·太乙天符·同天符(양·=재천)·同歲會(음·=재천)의 정의를 구분.</p></div><div class="scorebox">정답 <b id="s2">0</b> / <span id="t2">0</span></div></div><div class="card"><div class="prompt-han" id="g2-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g2-choices"></div><div class="reveal" id="g2-reveal"></div></div></section>
+<section class="panel" id="g3"><div class="game-head"><div><h2>平氣 — 3유형</h2><p>운태과이피억·운기불급이득조·간득부. 太過도 不及도 아닌 平和한 경우를 판정.</p></div><div class="scorebox">정답 <b id="s3">0</b> / <span id="t3">0</span></div></div><div class="card"><div class="prompt-han" id="g3-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c3" id="g3-choices"></div><div class="reveal" id="g3-reveal"></div></div></section>
+<section class="panel" id="g4"><div class="game-head"><div><h2>五運三氣 — 명칭</h2><p>오행 + 평기/불급/태과 상태에 맞는 명칭을 고르세요(敷和·委和·發生 등). 大運으로 판단.</p></div><div class="scorebox">정답 <b id="s4">0</b> / <span id="t4">0</span></div></div><div class="card"><div class="prompt-han" id="g4-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c6" id="g4-choices"></div><div class="reveal" id="g4-reveal"></div></div></section>
+<section class="panel" id="g5"><div class="game-head"><div><h2>運氣同化 — 연도 판정</h2><p>간지년과 힌트(양간음간·양지음지·대운=사천/재천/년지)로 동화 종류를 판정하세요.</p></div><div class="scorebox">정답 <b id="s5">0</b> / <span id="t5">0</span></div></div><div class="card"><div class="prompt-han" id="g5-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c5" id="g5-choices"></div><div class="reveal" id="g5-reveal"></div></div></section>
+</main>
+<footer><span class="han">順化 天刑 小逆 不和 ¦ 天符 歲會 太乙天符 同天符 同歲會 ¦ 極烈: 太乙天符 &gt; 同天符·天符 &gt; 同歲會·歲會</span><br>오운육기 · 3장 4절 학습 허브 · 단일 HTML</footer>
+<script>
+(function(){
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function mkQuiz(o){
+  var item=$("#"+o.gid+"-item"),ch=$("#"+o.gid+"-choices"),rev=$("#"+o.gid+"-reveal"),
+      sEl=$("#s"+o.gid.slice(1)),tEl=$("#t"+o.gid.slice(1));
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(o.data);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML=o.item(cur);
+    ch.className="choices "+o.cls;ch.innerHTML="";
+    o.opts(cur).forEach(function(op){var b=el("button","choice",op.label);b.setAttribute("data-v",op.val);b.addEventListener("click",function(){ans(op.val,b);});ch.appendChild(b);});}
+  function ans(val,btn){var cor=o.correct(cur);var ok=(val===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.getAttribute("data-v")===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+o.reveal(cur)+'<div class="trap">'+o.trap+'</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+}
+var ELC={"木":"p-mok","火":"p-hwa","土":"p-to","金":"p-geum","水":"p-su"};
+function pill(e){return '<span class="wuxing-pill '+(ELC[e]||'')+'">'+e+'</span>';}
+function names4(arr){return arr.map(function(n){return {label:n,val:n};});}
+(function(){var tabs=document.querySelectorAll(".tab");if(!tabs.length)return;
+  Array.prototype.forEach.call(tabs,function(tab){tab.addEventListener("click",function(){
+    var id=tab.getAttribute("data-tab");
+    Array.prototype.forEach.call(tabs,function(t){t.classList.toggle("active",t===tab);});
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.toggle("active",p.id===id);});
+  });});})();
+
+/* G1 運氣相臨 */
+mkQuiz({gid:"g1",cls:"c2",data:[
+    {desc:"司天之氣가 大運을 生 (氣生運\\u00b7육기 主)",a:"順化",note:"기후 변화 平和"},
+    {desc:"司天之氣가 大運을 克 (氣克運\\u00b7육기 主)",a:"天刑",note:"변화 매우 극렬"},
+    {desc:"大運이 司天之氣를 生 (運生氣\\u00b7오운 主)",a:"小逆",note:"변화 비교적 큼"},
+    {desc:"大運이 司天之氣를 克 (運克氣\\u00b7오운 主)",a:"不和",note:"변화 비교적 큼"}
+  ],
+  item:function(c){return '「'+c.desc+'」';},
+  opts:function(){return shuffle(names4(["順化","天刑","小逆","不和"]));},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">\\u2192 <b style="color:var(--gold)">'+c.a+'</b> \\u00b7 '+c.note+'<br><span style="font-size:13px;color:var(--muted)">예: 甲子年 大運 土+司天 少陰君火 \\u2192 火生土 順化 / 丙子年 大運 水 \\u2192 水克火 不和</span></div>';},
+  trap:"氣가 運을 生(順化)\\u00b7克(天刑)이면 육기가 主 / 運이 氣를 生(小逆)\\u00b7克(不和)이면 오운이 主. 극렬도: 天刑 > 小逆\\u00b7不和 > 順化."});
+
+/* G2 運氣同化 정의 */
+mkQuiz({gid:"g2",cls:"c5",data:[
+    {desc:"大運 = 司天之氣 오행속성",a:"天符",ex:"己未年(大運 土 = 司天 太陰濕土)"},
+    {desc:"大運 = 年支 오행속성",a:"歲會",ex:"甲辰年(大運 土 = 年支 辰土)"},
+    {desc:"天符이면서 歲會 (大運=歲支=司天 모두 동일)",a:"太乙天符",ex:"己丑年 \\u2014 4년뿐(己丑\\u00b7己未\\u00b7乙酉\\u00b7戊午)"},
+    {desc:"陽干\\u00b7陽支이고 大運 = 在泉之氣 속성",a:"同天符",ex:"庚子年(大運 金 = 在泉 陽明燥金)"},
+    {desc:"陰干\\u00b7陰支이고 大運 = 在泉之氣 속성",a:"同歲會",ex:"辛未年(大運 水 = 在泉 太陽寒水)"}
+  ],
+  item:function(c){return '「'+c.desc+'」';},
+  opts:function(){return shuffle(names4(["天符","歲會","太乙天符","同天符","同歲會"]));},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">\\u2192 <b style="color:var(--gold)">'+c.a+'</b><br><span style="font-size:13px;color:var(--muted)">'+c.ex+'</span></div>';},
+  trap:"天符(=司天)\\u00b7歲會(=年支)\\u00b7太乙天符(天符+歲會)\\u00b7同天符(陽\\u00b7=在泉)\\u00b7同歲會(陰\\u00b7=在泉). 극렬도: 太乙天符 > 同天符\\u00b7天符 > 同歲會\\u00b7歲會."});
+
+/* G3 平氣 */
+mkQuiz({gid:"g3",cls:"c3",data:[
+    {desc:"大運 太過인데 司天之氣가 運을 克",a:"運太過而被抑",lab:"運太過\\u00b7被抑",ex:"戊辰年(戊癸合火 태과 + 司天 太陽寒水 \\u2192 水克火)"},
+    {desc:"大運 不及인데 司天之氣가 運을 生 (또는 年支오행 동일)",a:"運氣不及而得助",lab:"運不及\\u00b7得助",ex:"丁亥年(丁壬合木 불급 + 司天 厥陰風木 \\u2192 生)"},
+    {desc:"大寒節 교운시 日干\\u00b7時干 또는 年干\\u00b7時干이 相符",a:"干得符",lab:"干得符",ex:"辛未年 大寒日 丙子日 \\u2192 丙辛合水 평기"}
+  ],
+  item:function(c){return '「'+c.desc+'」';},
+  opts:function(){return shuffle([{label:"運太過\\u00b7被抑",val:"運太過而被抑"},{label:"運不及\\u00b7得助",val:"運氣不及而得助"},{label:"干得符",val:"干得符"}]);},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">\\u2192 <b style="color:var(--gold)">'+c.a+'</b><br><span style="font-size:13px;color:var(--muted)">'+c.ex+'</span></div>';},
+  trap:"平氣=태과도 불급도 아닌 平和. 운태과이피억(태과+克)\\u00b7운기불급이득조(불급+生)\\u00b7간득부(大寒節 日\\u00b7時干 相符)."});
+
+/* G4 五運三氣 명칭 */
+(function(){
+  var TBL=[
+    {e:"木",st:"平氣",n:"敷和"},{e:"火",st:"平氣",n:"升明"},{e:"土",st:"平氣",n:"備化"},{e:"金",st:"平氣",n:"審平"},{e:"水",st:"平氣",n:"靜順"},
+    {e:"木",st:"不及",n:"委和"},{e:"火",st:"不及",n:"伏明"},{e:"土",st:"不及",n:"卑監"},{e:"金",st:"不及",n:"從革"},{e:"水",st:"不及",n:"涸流"},
+    {e:"木",st:"太過",n:"發生"},{e:"火",st:"太過",n:"赫曦"},{e:"土",st:"太過",n:"敦阜"},{e:"金",st:"太過",n:"堅成"},{e:"水",st:"太過",n:"流衍"}
+  ];
+  var ALL=TBL.map(function(x){return x.n;});
+  function row(e){var o={};TBL.forEach(function(x){if(x.e===e)o[x.st]=x.n;});return '平氣 '+o["平氣"]+' \\u00b7 不及 '+o["不及"]+' \\u00b7 太過 '+o["太過"];}
+  mkQuiz({gid:"g4",cls:"c6",data:TBL,
+    item:function(c){return pill(c.e)+' \\u00b7 <b style="color:var(--gold)">'+c.st+'</b> 의 명칭?';},
+    opts:function(c){var others=shuffle(ALL.filter(function(n){return n!==c.n;})).slice(0,5);return shuffle(others.concat([c.n])).map(function(n){return {label:n,val:n};});},
+    correct:function(c){return c.n;},
+    reveal:function(c){return '<div class="src">'+pill(c.e)+' '+c.st+' \\u2192 <b style="color:var(--gold)">'+c.n+'</b><br><span style="font-size:13px;color:var(--muted)">'+pill(c.e)+' : '+row(c.e)+'</span></div>';},
+    trap:"평기 敷升備審靜(부화\\u00b7승명\\u00b7비화\\u00b7심평\\u00b7정순) / 불급 委伏卑從涸 / 태과 發赫敦堅流. 大運으로 판단."});
+})();
+
+/* G5 運氣同化 연도판정 */
+mkQuiz({gid:"g5",cls:"c5",data:[
+    {yr:"己未年",hint:"己 음간 \\u00b7 未 음지 \\u00b7 大運 土 = 司天 太陰濕土",a:"天符"},
+    {yr:"甲辰年",hint:"甲 양간 \\u00b7 辰 양지(土) \\u00b7 大運 土 = 年支 土",a:"歲會"},
+    {yr:"己丑年",hint:"大運 土 = 年支 丑土 = 司天 太陰濕土 (셋 다 동일)",a:"太乙天符"},
+    {yr:"庚子年",hint:"庚 양간 \\u00b7 子 양지 \\u00b7 大運 金 = 在泉 陽明燥金",a:"同天符"},
+    {yr:"辛未年",hint:"辛 음간 \\u00b7 未 음지 \\u00b7 大運 水 = 在泉 太陽寒水",a:"同歲會"}
+  ],
+  item:function(c){return '<b style="color:var(--gold);font-size:1.2em">'+c.yr+'</b><div style="font-size:13px;color:var(--muted);font-family:var(--sans);margin-top:6px">'+c.hint+'</div>';},
+  opts:function(){return shuffle(names4(["天符","歲會","太乙天符","同天符","同歲會"]));},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">'+c.yr+' \\u2192 <b style="color:var(--gold)">'+c.a+'</b></div>';},
+  trap:"司天 동일=天符, 年支 동일=歲會, 셋 다=太乙天符. 在泉 동일이며 陽干陽支=同天符, 陰干陰支=同歲會."});
+
+})();
+
+<\/script>
+
+<script>
+(function(){
+  function report(){ try{ parent.postMessage({__h: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)}, '*'); }catch(e){} }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if(window.MutationObserver){ new MutationObserver(report).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true}); }
+  document.addEventListener('click', function(){ setTimeout(report,60); setTimeout(report,360); });
+  setTimeout(report,150); setTimeout(report,600);
+})();
+<\/script>
+</body>
+</html>
+`,
+    oun5: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오운육기 · 三陰三陽·標本中氣</title>
+<style>
+  :root{
+    --ink:#0f1014;--ink2:#181a20;--ink3:#21242c;--line:#33384280;--line2:#333842;
+    --paper:#cdd6e0;--text:#e6ebf2;--muted:#8b94a3;
+    --seal:#c8453a;--gold:#d8a64a;
+    --mok:#6fae6a;--hwa:#d05a44;--to:#d8a64a;--geum:#c9cdcb;--su:#5f86b8;
+    --ok:#7bbf73;--no:#d8635a;
+    --serif:"Nanum Myeongjo","Noto Serif KR",Batang,"바탕",'Apple SD Gothic Neo',serif;
+    --sans:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",Pretendard,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}html,body{margin:0;padding:0}
+  body{background:radial-gradient(1100px 560px at 82% -12%,rgba(95,134,184,.10),transparent 60%),radial-gradient(900px 520px at 0% 110%,rgba(216,166,74,.06),transparent 55%),var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header.hero{position:relative;padding:34px 16px 16px;border-bottom:1px solid var(--line2);overflow:hidden}
+  .hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hanzi-title{font-family:var(--serif);font-weight:700;letter-spacing:.16em;font-size:clamp(34px,7.5vw,56px);line-height:1;color:var(--paper);text-shadow:0 2px 20px rgba(95,134,184,.3)}
+  .hanzi-title .a{color:var(--su)}.hanzi-title .b{color:var(--gold)}
+  .title-meta{display:flex;flex-direction:column;gap:4px}
+  .title-ko{font-size:18px;color:var(--text);font-weight:600}
+  .title-sub{font-size:13px;color:var(--muted)}
+  .seal{margin-left:auto;font-family:var(--serif);font-weight:700;color:#f3e4cf;background:var(--seal);border:2px solid #e88;border-radius:6px;width:54px;height:54px;display:grid;place-items:center;line-height:1.05;text-align:center;font-size:16px;box-shadow:0 4px 14px rgba(200,69,58,.35);transform:rotate(-3deg)}
+  .gz-strip{max-width:960px;margin:14px auto 0;display:flex;flex-direction:column;gap:4px}
+  .gz-row{display:flex;gap:5px;align-items:center;justify-content:center;flex-wrap:wrap;font-family:var(--serif);font-size:15px}
+  .gz-lab{font-family:var(--sans);font-size:11px;color:var(--muted);min-width:30px}
+  .gz-row .c{color:var(--su)} .gz-row .c2{color:var(--gold)}
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(15,16,20,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line2);margin-bottom:22px}
+  .tabs-inner{max-width:960px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:8px 10px}
+  .tab{flex:0 0 auto;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--sans);cursor:pointer;border-radius:9px;padding:8px 13px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:96px;transition:.15s}
+  .tab .t-han{font-family:var(--serif);font-size:17px;letter-spacing:.06em;color:inherit}
+  .tab .t-ko{font-size:11px;opacity:.85}
+  .tab:hover{color:var(--text);background:var(--ink2)}
+  .tab.active{color:var(--paper);background:var(--ink3);border-color:var(--line2)}
+  .tab.active .t-han{color:var(--gold)}
+  .tab:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .panel{display:none;animation:fade .25s ease}.panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .game-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .game-head h2{font-family:var(--serif);font-size:23px;margin:0;color:var(--paper);letter-spacing:.04em}
+  .game-head p{margin:2px 0 0;font-size:13px;color:var(--muted);max-width:620px}
+  .scorebox{margin-left:auto;font-size:13px;color:var(--muted);background:var(--ink2);border:1px solid var(--line2);border-radius:8px;padding:6px 12px;white-space:nowrap}
+  .scorebox b{color:var(--paper);font-size:15px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:20px;margin-bottom:16px}
+  .prompt-han{font-family:var(--serif);font-size:clamp(28px,7vw,44px);color:var(--text);letter-spacing:.05em;text-align:center;margin:8px 0 4px;line-height:1.3}
+  .prompt-label{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .ask{text-align:center;font-size:14px;color:var(--paper);margin:16px 0 12px;font-weight:600}
+  .choices{display:grid;gap:9px}
+  .choices.c2{grid-template-columns:repeat(2,1fr)}
+  .choices.c3{grid-template-columns:repeat(3,1fr)}
+  .choices.c5{grid-template-columns:repeat(5,1fr)}
+  .choices.c6{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:560px){.choices.c6{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.choices.c5{grid-template-columns:repeat(5,1fr)}}
+  .choice{background:var(--ink3);border:1px solid var(--line2);color:var(--text);font-family:var(--serif);font-size:16px;padding:13px 8px;border-radius:10px;cursor:pointer;transition:.13s;text-align:center;line-height:1.3}
+  .choice .sub{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:3px}
+  .choice:hover:not(:disabled){border-color:var(--paper);background:#272b34;transform:translateY(-1px)}
+  .choice:disabled{cursor:default;opacity:.92}
+  .choice.correct{border-color:var(--ok);background:rgba(123,191,115,.16);color:#cfe9c9}
+  .choice.wrong{border-color:var(--no);background:rgba(216,99,90,.16);color:#f0c4c0}
+  .choice:focus-visible{outline:2px solid var(--su);outline-offset:2px}
+  .reveal{margin-top:16px;border-top:1px dashed var(--line2);padding-top:14px;display:none}
+  .reveal.show{display:block;animation:fade .2s}
+  .reveal .verdict{font-weight:700;font-size:15px;margin-bottom:8px}
+  .reveal .verdict.ok{color:var(--ok)}.reveal .verdict.no{color:var(--no)}
+  .src{font-family:var(--serif);color:var(--paper);font-size:16px;letter-spacing:.02em;line-height:1.7}
+  .gloss{font-size:13px;color:var(--muted);margin-top:6px}
+  .trap{font-size:12.5px;color:#e7b9a0;background:rgba(200,69,58,.10);border-left:3px solid var(--seal);padding:7px 11px;border-radius:0 7px 7px 0;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--seal);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:9px;cursor:pointer;margin-top:14px}
+  .btn:hover{background:#d8554a}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .wuxing-pill{display:inline-block;font-family:var(--serif);font-weight:700;padding:1px 9px;border-radius:16px;color:#0f1014;font-size:15px}
+  .p-mok{background:var(--mok)}.p-hwa{background:var(--hwa)}.p-to{background:var(--to)}.p-geum{background:var(--geum)}.p-su{background:var(--su)}
+  footer{max-width:960px;margin:34px auto 0;padding:0 16px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+  footer .han{font-family:var(--serif);color:var(--paper)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .seq-slots{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;margin:4px 0 16px;min-height:54px}
+  .seq-slot{min-width:66px;height:50px;border:1px dashed var(--line2);border-radius:8px;display:grid;place-items:center;font-family:var(--serif);font-size:16px;color:var(--muted)}
+  .seq-slot.filled{border-style:solid;border-color:var(--gold);color:var(--text);background:rgba(216,166,74,.12)}
+  .seq-arrow{color:var(--muted);font-size:13px}
+  .tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .tile{background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:10px 14px;font-family:var(--serif);font-size:17px;color:var(--text);cursor:pointer;transition:.13s;display:flex;flex-direction:column;align-items:center}
+  .tile .tn{font-family:var(--sans);font-size:11px;color:var(--muted);margin-top:2px}
+  .tile:hover:not(.used){border-color:var(--paper);transform:translateY(-1px)}
+  .tile.used{opacity:.22;pointer-events:none}
+  .tile.bad{animation:shake .3s;border-color:var(--no)}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .clues{display:grid;gap:8px;margin:4px 0 6px}
+  .clue{display:flex;gap:10px;align-items:baseline;background:var(--ink3);border:1px solid var(--line2);border-radius:9px;padding:9px 13px}
+  .clue .k{font-size:11px;color:var(--gold);font-weight:700;min-width:64px;font-family:var(--sans)}
+  .clue .v{font-family:var(--serif);font-size:16px;color:var(--text)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner"><div class="hanzi-title"><span class="a">標</span><span class="b">本</span></div><div class="title-meta"><div class="title-ko">오운육기 · 三陰三陽·標本中氣</div><div class="title-sub">3장 5절 · 三陰三陽 / 標本中氣 / 從化 / 十二經脈 / 開闔樞</div></div><div class="seal">標本</div></div><div class="gz-strip"><div class="gz-row"><span class="gz-lab">天干</span><span class="c">甲 乙 丙 丁 戊 己 庚 辛 壬 癸</span></div><div class="gz-row"><span class="gz-lab">地支</span><span class="c2">子 丑 寅 卯 辰 巳 午 未 申 酉 戌 亥</span></div></div></header>
+<nav class="tabs" aria-label="게임 선택"><div class="tabs-inner">
+<button class="tab active" data-tab="g1"><span class="t-han">三陰三陽</span><span class="t-ko">음양 순서</span></button>
+<button class="tab" data-tab="g2"><span class="t-han">標本中氣</span><span class="t-ko">중기=표리</span></button>
+<button class="tab" data-tab="g3"><span class="t-han">從化</span><span class="t-ko">종본·종중</span></button>
+<button class="tab" data-tab="g4"><span class="t-han">十二經脈</span><span class="t-ko">본중 배속</span></button>
+<button class="tab" data-tab="g5"><span class="t-han">開闔樞</span><span class="t-ko">개·합·추</span></button>
+</div></nav>
+<main class="wrap">
+<section class="panel active" id="g1"><div class="game-head"><div><h2>三陰三陽 — 순서</h2><p>육기의 三陰三陽 순서(삼양~일음)를 고르세요. 기혈·음양다소·위치도 함께.</p></div><div class="scorebox">정답 <b id="s1">0</b> / <span id="t1">0</span></div></div><div class="card"><div class="prompt-han" id="g1-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c6" id="g1-choices"></div><div class="reveal" id="g1-reveal"></div></div></section>
+<section class="panel" id="g2"><div class="game-head"><div><h2>標本中氣 — 中氣</h2><p>本=六氣, 標=三陰三陽, 中氣=표리지기. 삼음삼양의 中氣(표리 짝의 육기)를 고르세요.</p></div><div class="scorebox">정답 <b id="s2">0</b> / <span id="t2">0</span></div></div><div class="card"><div class="prompt-han" id="g2-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c6" id="g2-choices"></div><div class="reveal" id="g2-reveal"></div></div></section>
+<section class="panel" id="g3"><div class="game-head"><div><h2>從化規律</h2><p>소양·태음 從本 / 소음·태양 從本從標 / 양명·궐음 從中氣.</p></div><div class="scorebox">정답 <b id="s3">0</b> / <span id="t3">0</span></div></div><div class="card"><div class="prompt-han" id="g3-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c3" id="g3-choices"></div><div class="reveal" id="g3-reveal"></div></div></section>
+<section class="panel" id="g4"><div class="game-head"><div><h2>十二經脈 — 本中 배속</h2><p>삼음삼양의 本臟腑를 고르세요. 경맥·中氣(표리경)도 함께 확인.</p></div><div class="scorebox">정답 <b id="s4">0</b> / <span id="t4">0</span></div></div><div class="card"><div class="prompt-han" id="g4-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c6" id="g4-choices"></div><div class="reveal" id="g4-reveal"></div></div></section>
+<section class="panel" id="g5"><div class="game-head"><div><h2>開闔樞</h2><p>太陽開·陽明闔·少陽樞 / 太陰開·厥陰闔·少陰樞.</p></div><div class="scorebox">정답 <b id="s5">0</b> / <span id="t5">0</span></div></div><div class="card"><div class="prompt-han" id="g5-item"></div><div class="prompt-label">↕ 선택하세요</div><div class="choices c3" id="g5-choices"></div><div class="reveal" id="g5-reveal"></div></div></section>
+</main>
+<footer><span class="han">太陽↔少陰 少陽↔厥陰 陽明↔太陰 ¦ 少陽太陰從本 少陰太陽從本從標 陽明厥陰從中氣</span><br>오운육기 · 3장 5절 학습 허브 · 단일 HTML</footer>
+<script>
+(function(){
+"use strict";
+function $(s,r){return (r||document).querySelector(s);}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function mkQuiz(o){
+  var item=$("#"+o.gid+"-item"),ch=$("#"+o.gid+"-choices"),rev=$("#"+o.gid+"-reveal"),
+      sEl=$("#s"+o.gid.slice(1)),tEl=$("#t"+o.gid.slice(1));
+  if(!item||!ch)return;var sc=0,to=0,cur=null;
+  function round(){cur=pick(o.data);rev.className="reveal";rev.innerHTML="";
+    item.innerHTML=o.item(cur);
+    ch.className="choices "+o.cls;ch.innerHTML="";
+    o.opts(cur).forEach(function(op){var b=el("button","choice",op.label);b.setAttribute("data-v",op.val);b.addEventListener("click",function(){ans(op.val,b);});ch.appendChild(b);});}
+  function ans(val,btn){var cor=o.correct(cur);var ok=(val===cor);to++;if(ok)sc++;
+    Array.prototype.forEach.call(ch.children,function(x){x.disabled=true;});btn.classList.add(ok?"correct":"wrong");
+    if(!ok)Array.prototype.forEach.call(ch.children,function(x){if(x.getAttribute("data-v")===cor)x.classList.add("correct");});
+    sEl.textContent=sc;tEl.textContent=to;rev.className="reveal show";
+    rev.innerHTML='<div class="verdict '+(ok?"ok":"no")+'">'+(ok?"正 \\u2713":"誤 \\u2715")+'</div>'+o.reveal(cur)+'<div class="trap">'+o.trap+'</div>';
+    var b=el("button","btn","다음 \\u2192");b.addEventListener("click",round);rev.appendChild(b);}
+  round();
+}
+function names(arr){return arr.map(function(n){return {label:n,val:n};});}
+var YUKGI6=["厥陰風木","少陰君火","太陰濕土","少陽相火","太陽寒水","陽明燥金"];
+(function(){var tabs=document.querySelectorAll(".tab");if(!tabs.length)return;
+  Array.prototype.forEach.call(tabs,function(tab){tab.addEventListener("click",function(){
+    var id=tab.getAttribute("data-tab");
+    Array.prototype.forEach.call(tabs,function(t){t.classList.toggle("active",t===tab);});
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.toggle("active",p.id===id);});
+  });});})();
+
+/* G1 三陰三陽 순서 */
+mkQuiz({gid:"g1",cls:"c6",data:[
+    {e:"太陽寒水",ord:"三陽",gh:"多血",ym:"陽多",pos:"在下"},
+    {e:"陽明燥金",ord:"二陽",gh:"多氣多血",ym:"次少",pos:"在上"},
+    {e:"少陽相火",ord:"一陽",gh:"多氣",ym:"又少",pos:"遊行其間"},
+    {e:"太陰濕土",ord:"三陰",gh:"多氣",ym:"陰多",pos:"中央"},
+    {e:"少陰君火",ord:"二陰",gh:"多氣",ym:"次少",pos:"在上"},
+    {e:"厥陰風木",ord:"一陰",gh:"多血",ym:"又少",pos:"在下"}
+  ],
+  item:function(c){return '<b style="color:var(--gold)">'+c.e+'</b> 의 三陰三陽 순서?';},
+  opts:function(){return shuffle(names(["三陽","二陽","一陽","三陰","二陰","一陰"]));},
+  correct:function(c){return c.ord;},
+  reveal:function(c){return '<div class="src">'+c.e+' \\u2192 <b style="color:var(--gold)">'+c.ord+'</b> \\u00b7 '+c.gh+' \\u00b7 음양다소 '+c.ym+' \\u00b7 위치 '+c.pos+'</div>';},
+  trap:"太陽三陽\\u00b7陽明二陽\\u00b7少陽一陽 / 太陰三陰\\u00b7少陰二陰\\u00b7厥陰一陰. 위치원문(五運行大論): 風寒在下\\u00b7燥熱在上\\u00b7濕氣在中\\u00b7火遊行其間."});
+
+/* G2 標本中氣 */
+mkQuiz({gid:"g2",cls:"c6",data:[
+    {by:"厥陰(本=風)",mid:"少陽相火"},
+    {by:"少陰(本=熱)",mid:"太陽寒水"},
+    {by:"太陰(本=濕)",mid:"陽明燥金"},
+    {by:"少陽(本=火)",mid:"厥陰風木"},
+    {by:"陽明(本=燥)",mid:"太陰濕土"},
+    {by:"太陽(本=寒)",mid:"少陰君火"}
+  ],
+  item:function(c){return '<b style="color:var(--gold)">'+c.by+'</b> 의 中氣(표리지기)?';},
+  opts:function(){return shuffle(names(YUKGI6));},
+  correct:function(c){return c.mid;},
+  reveal:function(c){return '<div class="src">'+c.by+' 의 中氣 \\u2192 <b style="color:var(--gold)">'+c.mid+'</b></div>';},
+  trap:"本=六氣(風寒暑濕燥火) \\u00b7 標=三陰三陽 \\u00b7 中氣=三陰三陽의 표리지기. 太陽\\u2194少陰\\u00b7少陽\\u2194厥陰\\u00b7陽明\\u2194太陰 표리."});
+
+/* G3 從化規律 */
+mkQuiz({gid:"g3",cls:"c3",data:[
+    {e:"少陽相火",a:"從本",note:"從本化 \\u2014 火熱 증상"},
+    {e:"太陰濕土",a:"從本",note:"從本化 \\u2014 濕痰\\u00b7곽란"},
+    {e:"少陰君火",a:"從本從標",note:"강한 불"},
+    {e:"太陽寒水",a:"從本從標",note:"차가운 물"},
+    {e:"陽明燥金",a:"從中氣",note:"中氣 太陰濕土 따름"},
+    {e:"厥陰風木",a:"從中氣",note:"中氣 少陽相火 따름"}
+  ],
+  item:function(c){return '<b style="color:var(--gold)">'+c.e+'</b> 의 從化는?';},
+  opts:function(){return shuffle(names(["從本","從本從標","從中氣"]));},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">'+c.e+' \\u2192 <b style="color:var(--gold)">'+c.a+'</b> ('+c.note+')</div>';},
+  trap:"少陽\\u00b7太陰 從本 / 少陰\\u00b7太陽 從本從標 / 陽明\\u00b7厥陰 從中氣. (소양태음종본, 소음태양종본종표, 양명궐음종중기)"});
+
+/* G4 十二經脈 本中 */
+mkQuiz({gid:"g4",cls:"c6",data:[
+    {by:"厥陰(風)",bz:"肝",gm:"足厥陰肝經",mid:"心包 \\u00b7 手厥陰心包經"},
+    {by:"少陰(熱)",bz:"心",gm:"手少陰心經",mid:"腎 \\u00b7 足少陰腎經"},
+    {by:"太陰(濕)",bz:"脾",gm:"足太陰脾經",mid:"肺 \\u00b7 手太陰肺經"},
+    {by:"少陽(火)",bz:"三焦",gm:"手少陽三焦經",mid:"膽 \\u00b7 足少陽膽經"},
+    {by:"陽明(燥)",bz:"大腸",gm:"手陽明大腸經",mid:"胃 \\u00b7 足陽明胃經"},
+    {by:"太陽(寒)",bz:"膀胱",gm:"足太陽膀胱經",mid:"小腸 \\u00b7 手太陽小腸經"}
+  ],
+  item:function(c){return '<b style="color:var(--gold)">'+c.by+'</b> 의 本臟腑?';},
+  opts:function(){return shuffle(names(["肝","心","脾","三焦","大腸","膀胱"]));},
+  correct:function(c){return c.bz;},
+  reveal:function(c){return '<div class="src">'+c.by+' \\u2192 本臟腑 <b style="color:var(--gold)">'+c.bz+'</b> ('+c.gm+')<br><span style="font-size:13px;color:var(--muted)">中氣: '+c.mid+'</span></div>';},
+  trap:"本氣를 從하는 장: 肝\\u00b7心\\u00b7脾\\u00b7三焦\\u00b7大腸\\u00b7膀胱. 手足 명칭은 臟 기준(肝=하초=足, 心=상초=手), 腑는 표리관계로 상응."});
+
+/* G5 開闔樞 */
+mkQuiz({gid:"g5",cls:"c3",data:[
+    {e:"太陽寒水",a:"開"},{e:"陽明燥金",a:"闔"},{e:"少陽相火",a:"樞"},
+    {e:"太陰濕土",a:"開"},{e:"厥陰風木",a:"闔"},{e:"少陰君火",a:"樞"}
+  ],
+  item:function(c){return '<b style="color:var(--gold)">'+c.e+'</b> 의 開闔樞?';},
+  opts:function(){return shuffle(names(["開","闔","樞"]));},
+  correct:function(c){return c.a;},
+  reveal:function(c){return '<div class="src">'+c.e+' \\u2192 <b style="color:var(--gold)">'+c.a+'</b></div>';},
+  trap:"太陽開\\u00b7陽明闔\\u00b7少陽樞 (삼양) / 太陰開\\u00b7厥陰闔\\u00b7少陰樞 (삼음). 開=바깥, 闔=안, 樞=지도리."});
+
+})();
+
+<\/script>
+
+<script>
+(function(){
+  function report(){ try{ parent.postMessage({__h: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)}, '*'); }catch(e){} }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if(window.MutationObserver){ new MutationObserver(report).observe(document.body,{subtree:true,childList:true,attributes:true,characterData:true}); }
+  document.addEventListener('click', function(){ setTimeout(report,60); setTimeout(report,360); });
+  setTimeout(report,150); setTimeout(report,600);
+})();
+<\/script>
+</body>
+</html>
+`
+  };
+  var frame = document.getElementById('frame');
+  var tabs = document.querySelectorAll('.sec-tab');
+  function show(key){
+    Array.prototype.forEach.call(tabs,function(t){ t.classList.toggle('active', t.getAttribute('data-sec')===key); });
+    frame.style.height = '780px';
+    frame.srcdoc = HUBS[key];
+    try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){ window.scrollTo(0,0); }
+  }
+  window.addEventListener('message', function(e){
+    if(e && e.data && typeof e.data.__h === 'number' && e.data.__h>200){ frame.style.height = (e.data.__h + 6) + 'px'; }
+  });
+  Array.prototype.forEach.call(tabs,function(t){ t.addEventListener('click', function(){ show(t.getAttribute('data-sec')); }); });
+  show('oun1');
+</script>
+</body>
+</html>
